@@ -9,8 +9,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 // Conectar a MongoDB usando Mongoose
-mongoose.connect('mongodb+srv://nahumpl95:tCVcUH7gkAWIm4HW@weddingcn.n6hqazd.mongodb.net/weddin2024', { ssl: true,
-sslValidate: true });
+mongoose.connect('mongodb+srv://nahumpl95:tCVcUH7gkAWIm4HW@weddingcn.n6hqazd.mongodb.net/weddin2024', { ssl: true});
 const db = mongoose.connection;
 
 
