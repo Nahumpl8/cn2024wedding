@@ -8,8 +8,8 @@ const path = require('path');
 const app = express();
 const port = process.env.PORT || 3000;
 
-// Conectar a MongoDB usando Mongoose
-mongoose.connect('mongodb+srv://nahumpl95:tCVcUH7gkAWIm4HW@weddingcn.n6hqazd.mongodb.net/weddin2024', { ssl: true});
+// Conectar a MongoDB usando Mongoose}
+mongoose.connect(process.env.MONGODB_URI, { ssl: true });
 const db = mongoose.connection;
 
 
