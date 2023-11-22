@@ -9,7 +9,8 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 // Conectar a MongoDB usando Mongoose
-mongoose.connect('mongodb+srv://nahumpl95:tCVcUH7gkAWIm4HW@weddingcn.n6hqazd.mongodb.net/weddin2024', { ssl: true});
+mongoose.connect('mongodb+srv://nahumpl95:tCVcUH7gkAWIm4HW@weddingcn.n6hqazd.mongodb.net/weddin2024', { ssl: true,
+sslValidate: true });
 const db = mongoose.connection;
 
 
@@ -29,12 +30,12 @@ app.set('view engine', 'ejs');
 
 app.use(session({ 
     secret : "semilla para generar IDs de session",
-    resave : true,
+    resave : false,
     saveUninitialized : true
  }));
 
 app.use(express.json());
-// Configuración para servir archivos estáticos desde la carpeta 'public'
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(express.urlencoded({ extended: true }));
