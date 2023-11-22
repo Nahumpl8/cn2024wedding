@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const session = require("express-session");
 const path = require('path');
+const MongoStore = require('connect-mongo');
 
 
 
@@ -12,6 +13,11 @@ const port = process.env.PORT || 3000;
 mongoose.connect(process.env.MONGODB_URI, { ssl: true });
 const db = mongoose.connection;
 
+// Configuración de la sesión con connect-mongo
+const sessionStore = MongoStore.create({
+    mongoUrl: process.env.MONGODB_URI,
+    ttl: 14 * 24 * 60 * 60, // tiempo de vida de la sesión en segundos (opcional)
+});
 
 db.on('error', console.error.bind(console, 'Error de conexión a MongoDB:'));
 db.once('open', () => {
@@ -27,11 +33,12 @@ const Invitado = mongoose.model('Invitado', {
 
 app.set('view engine', 'ejs');
 
-app.use(session({ 
-    secret : "semilla para generar IDs de session",
-    resave : false,
-    saveUninitialized : true
- }));
+app.use(session({
+    secret: 'semilla para generar IDs de sesión',
+    resave: false,
+    saveUninitialized: false,
+    store: sessionStore,
+}));
 
 app.use(express.json());
 
