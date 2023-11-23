@@ -110,6 +110,9 @@
             color: #f5f5f5;
             padding: 10px;
         }
+        .form_access h2{
+            display: none;
+        }
 
 
         @media screen and (max-width: 720px) {
@@ -122,7 +125,7 @@
                 position: relative;
             }
             .photo_web img{
-                filter: brightness(.7);
+                filter: brightness(.5);
                 object-position: bottom;
             }
             .title{
@@ -131,10 +134,12 @@
             }
             .title h1{
                 font-size: 3.6rem;
+                color: #f5f5f5;
             }
             .title h2{
                 font-size: 2.4rem;
                 margin-top: 15px;
+                color: #f5f5f5;
             }
             
             .title h1, h2{
@@ -142,9 +147,17 @@
             }
             .form_access{
                 position: absolute;
-                background-color: #f5f5f5d0;
+                background-color: #f5f5f5bf;
                 bottom: 28%;  
-                border-radius: 5px;       
+                border-radius: 5px;  
+                width: 80%;   
+                bottom: 25%;
+            }
+            .form_access h2{
+                width: 80%;
+                text-align: center;
+                color: #c0a080;
+                text-shadow: none;
             }
         }
     </style>
@@ -162,6 +175,7 @@
                 <h2>19 · Octubre · 2024</h2>
             </div>
             <div class="form_access">
+                <h2>Ingresa con tu usuario y contraseña para ver tu invitación</h2>
                 <form action="/login" method="post">
                     <label for="nombre"></label>
                     <input type="text" id="nombre" name="nombre" placeholder="Nombre del invitado" required>

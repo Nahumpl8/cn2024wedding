@@ -3,20 +3,17 @@ const mongoose = require('mongoose');
 const session = require("express-session");
 const path = require('path');
 const MongoStore = require('connect-mongo');
-
-
+require('dotenv').config();
 
 const app = express();
 const port = process.env.PORT || 3000;
 
-// Conectar a MongoDB usando Mongoose}
 mongoose.connect(process.env.MONGODB_URI, { ssl: true });
 const db = mongoose.connection;
 
-// Configuración de la sesión con connect-mongo
 const sessionStore = MongoStore.create({
     mongoUrl: process.env.MONGODB_URI,
-    ttl: 14 * 24 * 60 * 60, // tiempo de vida de la sesión en segundos (opcional)
+    ttl: 14 * 24 * 60 * 60, 
 });
 
 db.on('error', console.error.bind(console, 'Error de conexión a MongoDB:'));
@@ -24,7 +21,6 @@ db.once('open', () => {
   console.log('Conexión exitosa a MongoDB');
 });
 
-// Definir un modelo de invitado
 const Invitado = mongoose.model('Invitado', {
   nombre: String,
   contraseña: String,
