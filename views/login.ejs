@@ -203,15 +203,18 @@
         const opcionesNombre = document.getElementById('opcionesNombre').options;
       
         nombreInput.addEventListener('input', function () {
-          const filtro = nombreInput.value.toLowerCase();
-          for (let i = 0; i < opcionesNombre.length; i++) {
-            const opcion = opcionesNombre[i].value.toLowerCase();
-            if (opcion.includes(filtro)) {
-              opcionesNombre[i].style.display = 'block';
-            } else {
-              opcionesNombre[i].style.display = 'none';
-            }
-          }
+            if(nombreInput != ''){
+                const filtro = nombreInput.value.toLowerCase();
+                for (let i = 0; i < opcionesNombre.length; i++) {
+                    const opcion = opcionesNombre[i].value.toLowerCase();
+                    if (opcion.includes(filtro)) {
+                    opcionesNombre[i].style.display = 'block';
+                    } else {
+                    opcionesNombre[i].style.display = 'none';
+                    }
+                }
+            } 
+          
         });
     </script>
 </body>
