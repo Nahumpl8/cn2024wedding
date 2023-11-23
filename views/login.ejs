@@ -201,20 +201,24 @@
     <script>
         const nombreInput = document.getElementById('nombre');
         const opcionesNombre = document.getElementById('opcionesNombre').options;
-      
+    
         nombreInput.addEventListener('input', function () {
-            if(nombreInput != ''){
-                const filtro = nombreInput.value.toLowerCase();
+            const filtro = nombreInput.value.toLowerCase();
+            if (filtro.trim() !== '') {
                 for (let i = 0; i < opcionesNombre.length; i++) {
                     const opcion = opcionesNombre[i].value.toLowerCase();
                     if (opcion.includes(filtro)) {
-                    opcionesNombre[i].style.display = 'block';
+                        opcionesNombre[i].style.display = 'block';
                     } else {
-                    opcionesNombre[i].style.display = 'none';
+                        opcionesNombre[i].style.display = 'none';
                     }
                 }
-            } 
-          
+            } else {
+                opcionesNombre.style.display = 'none';
+                for (let i = 0; i < opcionesNombre.length; i++) {
+                    opcionesNombre[i].style.display = 'none';
+                }
+            }
         });
     </script>
 </body>
