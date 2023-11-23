@@ -43,19 +43,29 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 
 
-app.get('/', (req, res) => {
-  res.render('login');
-});
+
+app.get('/', async (req, res) => {
+    try {
+      const invitados = await Invitado.find({}, 'nombre');
+      const nombres = invitados.map((invitado) => invitado.nombre);
+      res.render('login', { opcionesNombre: nombres });
+    } catch (error) {
+      console.error('Error al obtener opciones de nombres:', error);
+      res.status(500).json({ error: 'Error interno del servidor' });
+    }
+  });
 
 app.post('/login', async (req, res) => {
     try {
         const { nombre, contraseña } = req.body;
         const usuarioAutenticado = await Invitado.findOne({ nombre, contraseña });
+        
     
         if (usuarioAutenticado) {
           res.render('index', { usuario: usuarioAutenticado });
         } else {
           res.redirect('/');
+          
         }
       } catch (error) {
         console.error('Error al procesar formulario de login:', error);
@@ -65,7 +75,7 @@ app.post('/login', async (req, res) => {
 
 app.get("/logout", (req, res) => {
     req.session.destroy();
-    res.render('login');
+    res.redirect('/');
 })
 
 app.listen(port, () => {

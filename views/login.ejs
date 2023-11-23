@@ -71,13 +71,13 @@
             border: none;
             border-bottom: 2px solid #c0a080;
             background-color: transparent;
-            padding: 10px 15px;
+            padding: 10px 20px;
             font-family: Georgia, 'Times New Roman', Times, serif;
             text-align: center;
             color: rgb(96, 118, 96);
             font-size: 1.8rem;
             transition: border-bottom 0.3s, color 0.3s; 
-            width: fit-content;
+            min-width: 250px;
         }
 
         #nombre:focus,
@@ -93,6 +93,7 @@
             background-color: transparent; 
             color: rgb(96, 118, 96); 
         }
+        
 
         #nombre::-webkit-input-placeholder,
         #contraseña::-webkit-input-placeholder {
@@ -154,6 +155,7 @@
                 bottom: 25%;
             }
             .form_access h2{
+                display: block;
                 width: 80%;
                 text-align: center;
                 color: #c0a080;
@@ -178,16 +180,39 @@
                 <h2>Ingresa con tu usuario y contraseña para ver tu invitación</h2>
                 <form action="/login" method="post">
                     <label for="nombre"></label>
-                    <input type="text" id="nombre" name="nombre" placeholder="Nombre del invitado" required>
-            
+                    <input type="text" id="nombre" name="nombre" list="opcionesNombre" placeholder="Selecciona tu nombre" required>
+                    <datalist id="opcionesNombre">
+                        <% opcionesNombre.forEach(function(nombre) { %>
+                          <option value="<%= nombre %>">
+                        <% }); %>
+                    </datalist>
+                    
                     <label for="contraseña"></label>
                     <input type="password" id="contraseña" name="contraseña" placeholder="Contraseña" required>
             
                     <button type="submit">Ver invitación</button>
+
                 </form>
             </div>
         </div>
     </section>
-    
+
+
+    <script>
+        const nombreInput = document.getElementById('nombre');
+        const opcionesNombre = document.getElementById('opcionesNombre').options;
+      
+        nombreInput.addEventListener('input', function () {
+          const filtro = nombreInput.value.toLowerCase();
+          for (let i = 0; i < opcionesNombre.length; i++) {
+            const opcion = opcionesNombre[i].value.toLowerCase();
+            if (opcion.includes(filtro)) {
+              opcionesNombre[i].style.display = 'block';
+            } else {
+              opcionesNombre[i].style.display = 'none';
+            }
+          }
+        });
+    </script>
 </body>
 </html>
