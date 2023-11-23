@@ -179,7 +179,7 @@
                 <h2>Ingresa con tu usuario y contraseña para ver tu invitación</h2>
                 <form action="/login" method="post">
                     <label for="nombre"></label>
-                    <input type="text" id="nombre" name="nombre" placeholder="Selecciona tu nombre" required>
+                    <input type="text" id="nombre" name="nombre" placeholder="Selecciona tu nombre" autocomplete="on" required>
                     <datalist id="opcionesNombre">
                         <% opcionesNombre.forEach(function(nombre) { %>
                           <option value="<%= nombre %>">
@@ -220,6 +220,14 @@
                 opciones.forEach(opcion => {
                     opcion.style.display = 'none';
                 });
+            }
+        });
+
+        nombreInput.addEventListener('focus', function () {
+            if (nombreInput.value.trim().length >= 3) {
+                opcionesNombre.style.display = 'block';
+            } else{
+                opcionesNombre.style.display = 'none';
             }
         });
     </script>
