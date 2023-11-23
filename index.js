@@ -55,6 +55,10 @@ app.get('/', async (req, res) => {
     }
   });
 
+app.get('/login', async (req, res) => {
+  res.redirect('/')
+})
+
 app.post('/login', async (req, res) => {
     try {
         const { nombre, contraseña } = req.body;
