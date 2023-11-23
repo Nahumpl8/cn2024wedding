@@ -179,7 +179,7 @@
                 <h2>Ingresa con tu usuario y contraseña para ver tu invitación</h2>
                 <form action="/login" method="post">
                     <label for="nombre"></label>
-                    <input type="text" id="nombre" name="nombre" list="opcionesNombre" placeholder="Selecciona tu nombre" required>
+                    <input type="text" id="nombre" name="nombre" placeholder="Selecciona tu nombre" required>
                     <datalist id="opcionesNombre">
                         <% opcionesNombre.forEach(function(nombre) { %>
                           <option value="<%= nombre %>">
@@ -199,24 +199,27 @@
 
     <script>
         const nombreInput = document.getElementById('nombre');
-        const opcionesNombre = document.getElementById('opcionesNombre').options;
-    
+        const opcionesNombre = document.getElementById('opcionesNombre');
+
         nombreInput.addEventListener('input', function () {
             const filtro = nombreInput.value.toLowerCase();
-            if (filtro.trim() !== '') {
-                for (let i = 0; i < opcionesNombre.length; i++) {
-                    const opcion = opcionesNombre[i].value.toLowerCase();
-                    if (opcion.includes(filtro)) {
-                        opcionesNombre[i].style.display = 'block';
-                    } else {
-                        opcionesNombre[i].style.display = 'none';
-                    }
-                }
+            const opciones = opcionesNombre.querySelectorAll('option');
+
+            if (filtro.trim().length >= 3) {
+
+                nombreInput.setAttribute('list', 'opcionesNombre')
+                console.log(nombreInput)
+                opciones.forEach(opcion => {
+                    const opcionTexto = opcion.value.toLowerCase();
+                    opcion.style.display = opcionTexto.includes(filtro) ? 'block' : 'none';
+                });
             } else {
+                nombreInput.setAttribute('list', 'otraLista')
+                console.log(nombreInput)
                 opcionesNombre.style.display = 'none';
-                for (let i = 0; i < opcionesNombre.length; i++) {
-                    opcionesNombre[i].style.display = 'none';
-                }
+                opciones.forEach(opcion => {
+                    opcion.style.display = 'none';
+                });
             }
         });
     </script>
