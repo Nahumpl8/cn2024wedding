@@ -35,7 +35,7 @@
             justify-content: start;
             align-items: center;
         }
-        .logo_cn{
+        .logo_cn a{
             display: flex;
             align-items: center;
             justify-content: center;
@@ -226,7 +226,7 @@
         </div>
         <div class="access_page">
             <div class="logo_cn">
-                <img src="/images/logoWedding.png" alt="">
+                <a href="/"><img src="/images/logoWedding.png" alt=""></a> 
             </div>
           <div class="title">
             <h1>Claudia & Nahum</h1>
@@ -258,33 +258,6 @@
             list: opcionesNombre,
             minChars: 3, // Mínimo de caracteres antes de mostrar las sugerencias
         });
-        /*const nombreInput = document.getElementById('nombre');
-        const opcionesNombre = document.getElementById('opcionesNombre');
-
-        nombreInput.addEventListener('input', function () {
-            const filtro = nombreInput.value.toLowerCase();
-            const opciones = opcionesNombre.querySelectorAll('option');
-
-            if (filtro.trim().length >= 3) {
-
-                nombreInput.setAttribute('list', 'opcionesNombre')
-                console.log(nombreInput)
-                opciones.forEach(opcion => {
-                    const opcionTexto = opcion.value.toLowerCase();
-                    opcion.style.display = opcionTexto.includes(filtro) ? 'block' : 'none';
-                });
-            } else {
-                nombreInput.setAttribute('list', 'otraLista')
-                console.log(nombreInput)
-                opcionesNombre.style.display = 'none';
-                opciones.forEach(opcion => {
-                    opcion.style.display = 'none';
-                });
-            }
-        });*/
-
-        
-
     </script>
 </body>
 </html>

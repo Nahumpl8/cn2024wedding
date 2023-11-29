@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const session = require("express-session");
+const bodyParser = require('body-parser')
 const path = require('path');
 const MongoStore = require('connect-mongo');
 require('dotenv').config();
@@ -42,45 +43,55 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(express.urlencoded({ extended: true }));
 
-
-
 app.get('/', async (req, res) => {
-    try {
+  try {
+      res.render('principal', { });
+  } catch (error) {
+      console.error('Error al obtener información de la boda:', error);
+      res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
+
+app.get('/invitacion', async (req, res) => {
+  try {
+      res.render('invitacion', { });
+  } catch (error) {
+      console.error('Error al obtener información de la invitación:', error);
+      res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
+
+app.get('/login', async (req, res) => {
+  try {
       const invitados = await Invitado.find({}, 'nombre');
       const nombres = invitados.map((invitado) => invitado.nombre);
       res.render('login', { opcionesNombre: nombres });
-    } catch (error) {
+  } catch (error) {
       console.error('Error al obtener opciones de nombres:', error);
       res.status(500).json({ error: 'Error interno del servidor' });
-    }
-  });
-
-app.get('/login', async (req, res) => {
-  res.redirect('/')
-})
+  }
+});
 
 app.post('/login', async (req, res) => {
-    try {
-        const { nombre, contraseña } = req.body;
-        const usuarioAutenticado = await Invitado.findOne({ nombre, contraseña });
-        
-    
-        if (usuarioAutenticado) {
-          res.render('index', { usuario: usuarioAutenticado });
-        } else {
+  try {
+      const { nombre, contraseña } = req.body;
+      const usuarioAutenticado = await Invitado.findOne({ nombre, contraseña });
+
+      if (usuarioAutenticado) {
+          res.render('invitacion', { usuario: usuarioAutenticado });
+      } else {
           res.redirect('/');
-          
-        }
-      } catch (error) {
-        console.error('Error al procesar formulario de login:', error);
-        res.status(500).json({ error: 'Error interno del servidor' });
       }
+  } catch (error) {
+      console.error('Error al procesar formulario de login:', error);
+      res.status(500).json({ error: 'Error interno del servidor' });
+  }
 });
 
 app.get("/logout", (req, res) => {
-    req.session.destroy();
-    res.redirect('/');
-})
+  req.session.destroy();
+  res.redirect('/');
+});
 
 app.listen(port, () => {
   console.log(`Servidor escuchando en http://localhost:${port}`);

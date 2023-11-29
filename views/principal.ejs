@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claudia & Nahum</title>
+    <link rel="stylesheet" href="css/principal-styles.css">
+</head>
+<body>
+    
+    <header class="navbar">
+        <nav class="desktop_menu">
+            <ul>
+                <li>Inicio</li>
+                <li>Programa</li>
+                <img src="/images/logoWedding.png" alt="">
+                <li>Información</li>
+                <li><a href="/login">RSVP</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="slider_album">
+        <div class="slider-container">
+            <div class="slide">
+                <img src="./images/NahunClau_Preboda-43.jpg" alt="">
+            </div>
+            <div class="slide">
+                <img src="./images/NahunClau_Preboda-19.jpg" alt="">
+            </div>
+        </div>
+        <div class="text_couple">
+            <h1>CLAUDIA & NAHUM</h1>
+            <h4>19 · OCTUBRE · 2024</h4>
+        </div>
+    </section>
+    
+    <script>
+        //slider_home
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                    if (i == index) {
+                        slide.style.display = 'flex';
+                    } else {
+                        slide.style.display = 'none';
+                    }
+                });
+        }
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+        showSlide(currentSlide);
+
+        setInterval(nextSlide, 4000);
+
+
+    </script>
+</body>
+</html>

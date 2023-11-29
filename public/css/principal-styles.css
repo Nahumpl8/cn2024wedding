@@ -1,0 +1,103 @@
+@font-face {
+    font-family: titlesWedding;
+    src: url(../fonts/Vogue.ttf);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 10px;
+}
+body{
+    background-color: #FAF9F9;
+}
+.navbar{
+    position: fixed;
+    z-index: 3;
+    border-radius: 50px;
+}
+.desktop_menu{
+    padding: 10px;
+    width: 100%;
+}
+ul{
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    
+}
+.desktop_menu li{
+    list-style: none;
+    font-size: 1.8rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #FAF9F9;
+    
+}
+ul img{
+    width: 5%;
+}
+ul img{
+    scale: 1.8;
+}
+a{
+    text-decoration: none;
+    font-size: 1.8rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #FAF9F9;
+}
+
+/*slider album*/
+
+.slider_album{
+    width: 100%;
+    position: relative;
+}
+.slider_album::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); 
+    z-index: 1; 
+      
+}
+.slider-container{
+    overflow: hidden;
+    display: flex;
+    width: 100vw;
+    height: 90vh;
+
+}
+.slide{
+    width: 100%;
+    display: none;
+}
+.slide img{
+    width: 100%;
+    object-fit: cover;
+    
+}
+.text_couple{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 4;
+}
+.text_couple h1{
+    font-size: 10rem;
+    font-family: titlesWedding;
+    color: #c0a080;
+}
+.text_couple h4{
+    font-size: 4rem;
+    font-family: titlesWedding;
+    color: #c0a080;
+}
