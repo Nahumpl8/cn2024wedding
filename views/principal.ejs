@@ -13,7 +13,7 @@
             <ul>
                 <li><a href="#">Inicio</a></li>
                 <li><a href="">Programa</a></li>
-                <img src="/images/wedding.png" alt="logo de la boda">
+                <img src="/images/wedding.png" alt="logo de la boda" class="principal_logo_desktop">
                 <li><a href="">Información</a></li>
                 <li><a href="/login">RSVP</a></li>
             </ul>
@@ -26,10 +26,10 @@
                 <img src="/images/List.png" alt="" class="menu_icon">
             </div>
             <ul class="nav_phone_menu">
-                <li><a href="#">INICIO</a></li>
-                <li><a href="./paginas/ourStory.html">NUESTRA HISTORIA</a></li>
-                <li><a href="#information">INFORMACIÓN</a></li>
-                <li><a href="#contact">CONTACTO</a></li>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="">Programa</a></li>
+                <li><a href="">Información</a></li>
+                <li><a href="/login">RSVP</a></li>
             </ul>
         </nav>
     </header>
@@ -56,10 +56,16 @@
             <div class="seconds"></div>
         </div>
     </section>
-    <section class="story">
-        <h2>Nuestra historia</h2>
-        <div class="text_photo">
-            <p></p>
+    <section class="litte_story" id="story_main">
+        <div class="text_story">
+            <h2>Nuestra historia</h2>
+            <p>Hace 6 años que nos conocimos y desde ese momento algo dentro de nosotros se sintió especial, ha sido una aventura llena de grandes aprendizajes, crecimiento pero sobretodo mucho amor, "es como vivir en una luna de miel eterna" - Nahum</p>
+            <img src="./images/NahunClau_Preboda-43.jpg" alt="" class="no_phone_img">
+        </div>
+        <div class="image_story">
+            <div class="photo_walking">
+                <img src="./images/NahunClau_Preboda-19.jpg" alt="">
+            </div>
         </div>
     </section>
     
@@ -169,7 +175,23 @@
         }
         
 
-    
+        const menuDesktop = document.querySelector('.desktop_menu');
+        const menuDesktopOp = document.querySelectorAll('.desktop_menu a')
+        const logoWDesktop = document.querySelector('.principal_logo_desktop')
+
+        document.addEventListener('scroll', () => {
+            if(window.scrollY > 600){
+                menuDesktop.classList.add('desktop_scroll')
+                menuDesktopOp.forEach((op) => {op.style.color = '#607660'})
+                logoWDesktop.src = '/images/goldLogo.png'
+            } else{
+                menuDesktop.classList.remove('desktop_scroll')
+                menuDesktopOp.forEach((op) => {op.style.color = '#f8f8f8'})
+                logoWDesktop.src = '/images/wedding.png'
+            }
+            
+        })
+
     
     </script>
 </body>

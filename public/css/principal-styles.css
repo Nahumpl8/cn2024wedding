@@ -31,10 +31,22 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100%;
 }
 .desktop_menu{
     padding: 10px;
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.desktop_scroll{
+    width: 50%;
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 50px;
+    background-color: #f8f8f8d6;
+    color: #607660;
 }
 ul{
     padding: 0 15px;
@@ -98,6 +110,7 @@ a{
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.4); 
+    filter: blur(10px);
     z-index: 3; 
     animation: sliderFirst 2s;
       
@@ -225,7 +238,7 @@ a{
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-evenly;
-    gap: 100px;
+    gap: 150px;
     text-align: center;
 }
 .time div{
@@ -247,18 +260,55 @@ a{
 }
 
 
-/****HISTORIA*****/
-.story{
+
+/***NUESTRA HISTORIA***/
+.litte_story{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 10px 30px;
+    gap: 20px;
+    position: relative;
+}
+
+.text_story{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    padding: 0px 20px;
-}
-.story h2{
+    justify-content: space-evenly;
     font-family: Southland, sans-serif;
-    font-size: 6rem;
     color: rgb(96, 118, 96);
+}
+.text_story{
+    text-align: justify;
+    padding: 0 15px;
+}
+
+.text_story h2{
+    color: #c0a080;
+    font-size: 6rem;
+}
+.text_story p{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1.8rem;
+}
+
+.text_story img{
+    width: 100%;
+}
+.image_story{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #607660;
+}
+.photo_walking{
+    width: 100%;
+}
+.photo_walking img{
+    width: 100%;
+    height: 80%;
+    object-fit: cover;
 }
 
 
@@ -288,28 +338,41 @@ a{
         top: 100%; 
         left: 0;
         width: 100%;
-        background-color: #f8f8f8b8;
+        background-color: #f8f8f8d6;
         z-index: 1000;
+        animation: showMenu 1s;
+        animation-timing-function: ease-out;
       }
       
     .nav_phone_menu li {
         padding: 15px;
         text-align: center;
         list-style: none;
+
     }
       
     .nav_phone_menu a {
         color: rgb(96, 118, 96);
         text-decoration: none;
+        animation: showTime 1.5s;
     }
     .navbar.show{
-        background-color: #f8f8f8b8;
+        background-color: #f8f8f8d6;
         border-radius: 0;
+        animation: showSlide 3s;
     }
     .nav_phone_menu.show {
         display: block;
+        
     }
-    
+    @keyframes showMenu {
+        from{
+            height: 0;
+        }
+        to{
+            height: 200px;
+        }
+    }
     .menu_p{
         display: flex;
         align-items: center;
