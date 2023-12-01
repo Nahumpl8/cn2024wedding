@@ -11,11 +11,25 @@
     <header class="navbar">
         <nav class="desktop_menu">
             <ul>
-                <li>Inicio</li>
-                <li>Programa</li>
-                <img src="/images/logoWedding.png" alt="">
-                <li>Información</li>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="">Programa</a></li>
+                <img src="/images/wedding.png" alt="logo de la boda">
+                <li><a href="">Información</a></li>
                 <li><a href="/login">RSVP</a></li>
+            </ul>
+        </nav>
+        <nav class="phone_menu">
+            <div class="logo_phone">
+                <img src="/images/wedding.png" alt="" class="principal_logo">
+            </div>
+            <div class="menu_p">
+                <img src="/images/List.png" alt="" class="menu_icon">
+            </div>
+            <ul class="nav_phone_menu">
+                <li><a href="#">INICIO</a></li>
+                <li><a href="./paginas/ourStory.html">NUESTRA HISTORIA</a></li>
+                <li><a href="#information">INFORMACIÓN</a></li>
+                <li><a href="#contact">CONTACTO</a></li>
             </ul>
         </nav>
     </header>
@@ -31,6 +45,21 @@
         <div class="text_couple">
             <h1>CLAUDIA & NAHUM</h1>
             <h4>19 · OCTUBRE · 2024</h4>
+        </div>
+    </section>
+    <section class="time_left">
+        <h2>Solo faltan</h2>
+        <div class="time">
+            <div class="days"></div>
+            <div class="hours"></div>
+            <div class="minutes"></div>
+            <div class="seconds"></div>
+        </div>
+    </section>
+    <section class="story">
+        <h2>Nuestra historia</h2>
+        <div class="text_photo">
+            <p></p>
         </div>
     </section>
     
@@ -56,7 +85,92 @@
 
         setInterval(nextSlide, 4000);
 
+        const weddingDate = new Date("October 19, 2024 21:00:00").getTime();
 
+
+        function updateTimer() {
+            const currentDate = new Date().getTime();
+            const timeDifference = weddingDate - currentDate;
+
+            const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+            if(days == 1){
+                document.querySelector('.days').innerHTML= `<span style="font-size:10rem; font-family: 'titlesWedding', sans-serif; font-weight:500; margin-bottom:-20px;">${days}</span> <br> día`;
+            } else{
+                document.querySelector('.days').innerHTML= `<span class="number_time">${days}</span> <br> días`;
+            }
+            if(hours == 1){
+                document.querySelector('.hours').innerHTML= `<span class="number_time">${hours}</span> <br> hora`;
+            } else{
+                document.querySelector('.hours').innerHTML= `<span class="number_time">${hours}</span> <br> horas`;
+            }
+            if(minutes == 1){
+                document.querySelector('.minutes').innerHTML= `<span class="number_time">${hours}</span> <br> minuto`;
+            } else{
+                document.querySelector('.minutes').innerHTML= `<span class="number_time">${hours}</span> <br> minutos`;
+            }
+            if(seconds == 1){
+                document.querySelector('.seconds').innerHTML= `<span class="number_time">${seconds}</span> <br> segundo`;
+            } else{
+                document.querySelector('.seconds').innerHTML= `<span class="number_time">${seconds}</span> <br> segundos`;
+            }
+            
+        }
+
+        updateTimer();
+
+        setInterval(updateTimer, 1000);
+
+
+        const showTime = document.querySelectorAll('.time div');
+
+        window.addEventListener('scroll', checkScroll)
+
+        function checkScroll(){
+            showTime.forEach(box => {
+                const boxTop = box.getBoundingClientRect().top;
+                const triggerBottom = window.innerHeight * 0.9; 
+
+                if (boxTop < triggerBottom) {
+                    box.classList.add('show');
+                } else {
+                    box.classList.remove('show');
+                }
+            });
+        }
+       
+        const menuOptions = document.querySelector('.menu_p img')
+        const navBar = document.querySelector('.navbar')
+        const menuIcon = document.querySelector('.menu_icon')
+        const logoW = document.querySelector('.principal_logo')
+
+        menuOptions.addEventListener('click', toggleMobileMenu)
+        function toggleMobileMenu() {
+            const navPhoneMenu = document.querySelector('.nav_phone_menu');
+            navPhoneMenu.classList.toggle('show');
+            navBar.classList.toggle('show')
+
+
+            if(menuIcon.src.includes('List.png')){
+                menuIcon.src = '/images/X.png'
+                menuIcon.style.width = '110%'
+            } else{
+                menuIcon.src = '/images/List.png'
+                menuIcon.style.width = '90%'
+            }
+            if(logoW.src.includes('wedding.png')){
+                logoW.src = '/images/goldLogo.png'
+            } else{
+                logoW.src = '/images/wedding.png'
+            }
+        }
+        
+        
+    
+    
     </script>
 </body>
 </html>
