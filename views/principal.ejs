@@ -20,10 +20,10 @@
         </nav>
         <nav class="phone_menu">
             <div class="logo_phone">
-                <img src="/images/wedding.png" alt="" class="principal_logo">
+                <img src="/images/goldLogo.png" alt="" class="principal_logo">
             </div>
             <div class="menu_p">
-                <img src="/images/List.png" alt="" class="menu_icon">
+                <img src="/images/ListGold.png" alt="" class="menu_icon">
             </div>
             <ul class="nav_phone_menu">
                 <li><a href="#">Inicio</a></li>
@@ -160,17 +160,14 @@
             navBar.classList.toggle('show')
 
 
-            if(menuIcon.src.includes('List.png')){
+            if(menuIcon.src.includes('ListGold.png') || menuIcon.src.includes('ListGold.png')){
                 menuIcon.src = '/images/X.png'
-                menuIcon.style.width = '110%'
+                menuIcon.style.width = '160%'
+                phoneBar.style.paddingRight = '20px'
             } else{
-                menuIcon.src = '/images/List.png'
+                menuIcon.src = '/images/ListGold.png'
                 menuIcon.style.width = '90%'
-            }
-            if(logoW.src.includes('wedding.png')){
-                logoW.src = '/images/goldLogo.png'
-            } else{
-                logoW.src = '/images/wedding.png'
+                phoneBar.style.paddingRight = '15px'
             }
         }
         
@@ -178,13 +175,16 @@
         const menuDesktop = document.querySelector('.desktop_menu');
         const menuDesktopOp = document.querySelectorAll('.desktop_menu a')
         const logoWDesktop = document.querySelector('.principal_logo_desktop')
+        const phoneBar = document.querySelector('.phone_menu')
 
         document.addEventListener('scroll', () => {
             if(window.scrollY > 600){
+                phoneBar.classList.add('phone_scroll')
                 menuDesktop.classList.add('desktop_scroll')
                 menuDesktopOp.forEach((op) => {op.style.color = '#607660'})
                 logoWDesktop.src = '/images/goldLogo.png'
             } else{
+                phoneBar.classList.remove('phone_scroll')
                 menuDesktop.classList.remove('desktop_scroll')
                 menuDesktopOp.forEach((op) => {op.style.color = '#f8f8f8'})
                 logoWDesktop.src = '/images/wedding.png'
