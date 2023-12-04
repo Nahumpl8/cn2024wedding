@@ -307,7 +307,7 @@ a{
 }
 .photo_walking img{
     width: 100%;
-    height: 80%;
+    height: 70%;
     object-fit: cover;
     border-radius: 20px;
 }
@@ -366,13 +366,25 @@ a{
     border-radius: 20px 0px 0px 20px;
     height: 350px;
 }
+.img_details{
+    position: relative;
+}
+.img_details::before{
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: #00000078;
+    border-radius: 20px 0px 0px 20px;
+}
+
 
 
 /******MAIN_INFO******/
 
 .main_info{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     padding: 40px;
     gap: 20px;
 }
@@ -382,22 +394,86 @@ a{
     align-items: center;
     justify-content: space-between;
     padding: 20px;
-    border-radius: 50px;
+    border-radius: 10px;
     background-color: #f8f8f8;
-    border: 1px solid #c0a080;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateY(40px);
+}
+.info_wedding:nth-child(1){
+    transition: opacity 1s, transform 1s;
+}
+.info_wedding:nth-child(2){
+    transition: opacity 1.5s, transform 1.5s;
+}
+.info_wedding:nth-child(3){
+    transition: opacity 2s, transform 1.5s;
+}
+.info_wedding:nth-child(4){
+    transition: opacity 1s, transform 1s;
+}
+.info_wedding:nth-child(5){
+    transition: opacity 1.5s, transform 1.5s;
+}
+.info_wedding:nth-child(6){
+    transition: opacity 2s, transform 2s;
+}
+.info_wedding.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+.text_info{
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    align-items: center;
+    justify-content: start;
+}
+.info_img{
+    display: flex;
+    justify-content: end;
+}
+.info_img img{
+    width: 80%;
 }
 .info_wedding h2{
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    color: #6076606f;
-    font-size: 3.5rem;
+    color: #c0a080;
+    font-size: 4rem;
+    
 }
 .info_wedding p{
-    font-size: 1.8rem;
+    font-size: 1.6rem;
+    color: #607660;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: justify;
+    padding: 20px 0;
 }
 .info_wedding a{
     color: #607660;
     text-align: end;
 }
+.anchor{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    width: 100%;
+}
+.anchor a{
+    padding: 10px 15px;
+    background-color: #607660;
+    color: #f8f8f8;
+    border-radius: 10px;
+    font-size: 1.6rem;
+    transition: background .7s, color 400ms;
+    border: 1px solid transparent;
+}
+.anchor a:hover{
+    background-color: #f8f8f8;
+    color: rgb(96, 118, 96);
+    border: 1px solid #607660;
+    box-shadow: 0 0 10px rgba(96, 118, 96, 0.5);
+}
+
 
 
 
@@ -443,6 +519,9 @@ a{
         text-align: center;
         list-style: none;
 
+    }
+    .slide{
+        animation: none;
     }
       
     .nav_phone_menu a {
@@ -510,10 +589,6 @@ a{
     }
 
 
-    .main_info{
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    }
-
 
     /****DETAILS*****/
     .text_details{
@@ -546,5 +621,8 @@ a{
         position: absolute;
         background-color: #00000078;
         border-radius: 20px 0px 0px 20px;
+    }
+    .info_wedding{
+        transition: opacity 1s, transform 1.5s;
     }
 }
