@@ -68,6 +68,59 @@
             </div>
         </div>
     </section>
+    <div class="ticker">
+        <div class="ticker-title">
+            <span>CLAUDIA&nbsp&&nbspNAHUM&nbsp2024</span>
+            <span>CLAUDIA&nbsp&&nbspNAHUM&nbsp2024</span>            
+            <span>CLAUDIA&nbsp&&nbspNAHUM&nbsp2024</span>            
+            <span>CLAUDIA&nbsp&&nbspNAHUM&nbsp2024</span>            
+            <span>CLAUDIA&nbsp&&nbspNAHUM&nbsp2024</span>  
+            <span>CLAUDIA&nbsp&&nbspNAHUM&nbsp2024</span>            
+            <span>CLAUDIA&nbsp&&nbspNAHUM&nbsp2024</span>            
+            <span>CLAUDIA&nbsp&&nbspNAHUM&nbsp2024</span>            
+            <span>CLAUDIA&nbsp&&nbspNAHUM&nbsp2024</span>            
+            <span>CLAUDIA&nbsp&&nbspNAHUM&nbsp2024</span>            
+            <span>CLAUDIA&nbsp&&nbspNAHUM&nbsp2024</span>            
+            <span>CLAUDIA&nbsp&&nbspNAHUM&nbsp2024</span>            
+            <span>CLAUDIA&nbsp&&nbspNAHUM&nbsp2024</span>            
+            <span>CLAUDIA&nbsp&&nbspNAHUM&nbsp2024</span>
+            <span>CLAUDIA&nbsp&&nbspNAHUM&nbsp2024</span>
+            <span>CLAUDIA&nbsp&&nbspNAHUM&nbsp2024</span>
+        </div>
+    </div>
+
+    <div class="important_details">
+        <div class="text_details">
+            <h2>Acerca del día</h2>
+        </div>
+        <div class="img_details">
+            <img src="/images/NahunClau_Preboda-19.jpg" alt="">
+        </div>
+    </div>
+    <section class="main_info">
+        <div class="location info_wedding">
+            <h2>Ubicación</h2>
+        </div>
+        <div class="dress_code info_wedding">
+            <h2>Dress code</h2>
+        </div>
+        <div class="hotels info_wedding">
+            <h2>Hoteles</h2>
+        </div>
+        <div class="rsvp_guest info_wedding">
+            <h2>RSVP</h2>
+        </div>
+        <div class="gifts info_wedding">
+            <h2>Mesa de Regalos</h2>
+        </div>
+        <div class="schedule info_wedding">
+            <h2>Programa del día</h2>
+        </div>
+    </section>
+
+
+
+
     
     <script>
         //slider_home
@@ -191,6 +244,26 @@
             }
             
         })
+
+
+        //TICKER
+        const contenedor = document.querySelector(".ticker-title");
+        const items = document.querySelectorAll(".ticker-title span");
+        let ancho = 0;
+        items.forEach( item => ancho += (item.clientWidth + 50));
+        contenedor.style.width = ancho + "px";
+
+        let left = 0;
+        setInterval(()=>{
+            if((left * -1) < (contenedor.children[0].clientWidth + 50)){
+                left--;
+            }else{
+                contenedor.appendChild(contenedor.children[0]);
+                left = 0;
+            }
+            contenedor.style.left = left + "px";
+        
+        },1000/60);
 
     
     </script>
