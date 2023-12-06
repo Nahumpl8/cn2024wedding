@@ -471,7 +471,7 @@ a{
     background-color: #f8f8f8;
     color: rgb(96, 118, 96);
     border: 1px solid #607660;
-    box-shadow: 0 0 10px rgba(96, 118, 96, 0.5);
+    box-shadow: 0 0 10px rgba(96, 118, 96, 0.5)
 }
 
 
@@ -586,6 +586,9 @@ a{
     }
     .litte_story h2{
         color: #607660;
+    }
+    .text_story img{
+        margin-top: 20px;
     }
 
 

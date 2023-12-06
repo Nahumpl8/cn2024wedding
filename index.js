@@ -61,6 +61,15 @@ app.get('/invitacion', async (req, res) => {
   }
 });
 
+app.get('/hoteles', async (req, res) => {
+  try {
+      res.render('hoteles', { });
+  } catch (error) {
+      console.error('Error al obtener información de la invitación:', error);
+      res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
+
 app.get('/login', async (req, res) => {
   try {
       const invitados = await Invitado.find({}, 'nombre');
