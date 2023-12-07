@@ -116,7 +116,7 @@ a{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 40px;
-    border-radius: 40px 40px 0 0;
+    border-radius: 20px 20px 0 0;
     background-color: #f8f8f8;
     padding: 40px;
 }
@@ -124,7 +124,9 @@ a{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
+    text-align: center;
+    gap: 20px;
 }
 .info_logo_bed h3{
     font-size: 2rem;
@@ -133,7 +135,7 @@ a{
     padding: 20px;
 }
 .info_logo_bed img{
-    width: 50%;
+    width: 30%;
 }
 .card_hotel{
     display: flex;
@@ -252,8 +254,8 @@ a{
     .nav_phone_menu a {
         color: #c0a080;
         text-decoration: none;
-        opacity: 0; /* Establecer la opacidad inicial en 0 */
-        animation: showMenuOptions 1s ease forwards; /* Usar forwards para mantener el estado final de la animación */
+        opacity: 0; 
+        animation: showMenuOptions 1s ease forwards; 
     }
     
     @keyframes showMenuOptions {
@@ -314,7 +316,9 @@ a{
         margin-top: 100px;
     }
     .slider_hoteles{
+        padding: 15px 10px;
         grid-template-columns: 1fr 1fr;
+        gap: 20px 10px;
     }
     .info_hotel h2{
         color: #607660;
