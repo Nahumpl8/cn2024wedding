@@ -70,6 +70,25 @@ app.get('/hoteles', async (req, res) => {
   }
 });
 
+// Este middleware procesa el formulario de inicio de sesión y renderiza la página de invitación
+app.post('/login', async (req, res) => {
+  try {
+      const { nombre, numInvitados } = req.body;
+      const usuarioAutenticado = await Invitado.findOne({ nombre});
+
+      if (usuarioAutenticado) {
+          res.render('invitacion', { usuario: usuarioAutenticado });
+      } else {
+          res.redirect('/login');
+          
+      }
+  } catch (error) {
+      console.error('Error al procesar formulario de login:', error);
+      res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
+
+// Esta ruta renderiza la página principal (login.ejs) con la lista de nombres
 app.get('/login', async (req, res) => {
   try {
       const invitados = await Invitado.find({}, 'nombre');
@@ -81,21 +100,23 @@ app.get('/login', async (req, res) => {
   }
 });
 
-app.post('/login', async (req, res) => {
-  try {
-      const { nombre, contraseña } = req.body;
-      const usuarioAutenticado = await Invitado.findOne({ nombre, contraseña });
 
-      if (usuarioAutenticado) {
-          res.render('invitacion', { usuario: usuarioAutenticado });
-      } else {
-          res.redirect('/');
-      }
+app.get('/getInvitados/:nombre', async (req, res) => {
+  try {
+    const { nombre } = req.params;
+    const usuario = await Invitado.findOne({ nombre });
+
+    if (usuario) {
+      res.json({ numInvitados: usuario.numeroInvitados });
+    } else {
+      res.json({ numInvitados: null });
+    }
   } catch (error) {
-      console.error('Error al procesar formulario de login:', error);
-      res.status(500).json({ error: 'Error interno del servidor' });
+    console.error('Error al obtener el número de invitados:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
   }
 });
+
 
 app.get("/logout", (req, res) => {
   req.session.destroy();
