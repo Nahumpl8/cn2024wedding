@@ -70,6 +70,15 @@ app.get('/hoteles', async (req, res) => {
   }
 });
 
+app.get('/dress-code', async (req, res) => {
+  try {
+      res.render('dress-code', { });
+  } catch (error) {
+      console.error('Error al obtener información de la invitación:', error);
+      res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
+
 // Este middleware procesa el formulario de inicio de sesión y renderiza la página de invitación
 app.post('/login', async (req, res) => {
   try {
