@@ -57,7 +57,7 @@
             width: 65%;
             height: 50%;
             margin-right: 50px;
-            box-shadow: -10px 10px 20px rgba(0, 0, 0, 0.2); 
+            box-shadow: -15px 15px 5px rgba(0, 0, 0, 0.2); 
             z-index: 1;
         }
         .info{
@@ -69,7 +69,7 @@
             width: 75%;
             height: 90%;
             background-color: #dbdbdb;
-            box-shadow: -10px 10px 20px rgba(0, 0, 0, 0.2); 
+            box-shadow: -15px 15px 5px rgba(0, 0, 0, 0.2); 
         }
         .logo_cn{
             display: flex;
@@ -120,7 +120,18 @@
         .pases_info_phone{
             display: none;
         }
-        
+        .datos_boda{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 0;
+        }
+        .get-out img{
+            width: 5%;
+        }
+
         @media screen and (max-width: 720px) {
             .pases_info{
                 display: none;
@@ -155,22 +166,26 @@
                     <img src="/images/c.png" alt="">
                 </div>
                 <div class="pases_info">
-                    <h3>Acompañantes: <%= usuario.numeroInvitados %></h3>
+                    <h1>RSVP</h1>
+                    <h2>Tu reservación está hecha para <%= usuario.numeroInvitados %> personas</h2>
+                    <h3>Esperamos contar con su presencia.</h3>
                 </div>
             </div>
             <div class="info">
                 <div class="papel_grande">
                     <div class="logo_cn">
-                        <img src="/images/logoWedding.png" alt="logo_boda">
+                        <img src="/images/goldLogo.png" alt="logo_boda">
                     </div>
                     <div class="invitados">
-                        <p>Querido/a:</p>
                         <h2><%= usuario.nombre %>,</h2>
                         <p>con gran alegría y emoción, los novios:</p>
-                        <h1>CLAUDIA & NAHUM</h1>  <p> tienen el honor de invitarles a la celebración de su unión matrimonial.</p>
+                        <h1>CLAUDIA & NAHUM</h1>  <p> tienen el honor de invitarte a la celebración de su unión matrimonial.</p>
                         <p>Dicha boda se llevará a cabo el día</p>
-                        <h2 style="text-align: center; margin: 10px 0; padding: 0px 20px;" >19 de OCTUBRE del 2024 a las 14:00 hrs en Jardín Rincón Dorado, Cuernavaca, Morelos</h2>
-                        <p>Su presencia en este día tan especial sería un honor para nosotros. Apreciamos profundamente la amistad y el amor que nos han brindado a lo largo de los años y nos gustaría compartir este momento significativo con ustedes.</p>
+                        <div class="datos_boda">
+                            <h2 style="text-align: center; padding: 0px 20px;" >19 de OCTUBRE del 2024 a las 15:00 hrs</h2>
+                            <h2 style="text-align: center; padding: 0px 20px;" >Hotel Galería Plaza San Jerónimo, CDMX</h2>
+                        </div>
+                        <p>Tu presencia en este día tan especial sería un honor para nosotros. Apreciamos profundamente la amistad y el amor que nos han brindado a lo largo de los años y nos gustaría compartir este momento significativo con ustedes.</p>
                     </div>
                 </div>
                 <div class="pases_info_phone">
@@ -178,8 +193,10 @@
                 </div>
             </div>
         </div>
-        <a href="/logout">Log out</a>
     </section>
+    <div class="options">
+        <a class="get-out" href="/logout"><img src="/images/getOut.png" alt="Salir de la invitación"></a>
+    </div>
     
     
 </body>

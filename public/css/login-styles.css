@@ -28,10 +28,7 @@ body{
     align-items: center;
 }
 .logo_cn a{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: fit-content;
+    display: inline-block;
 }
 .logo_cn img{
     width: 30%;

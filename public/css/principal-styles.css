@@ -82,7 +82,7 @@ ul{
     margin: 20px 0;
     padding: 10px;
     border-radius: 50px;
-    background-color: #607660;
+    background-color: rgb(96, 118, 96);
     color: #f8f8f8;
 }
 ul img{
@@ -590,7 +590,7 @@ a{
         padding-right: 15px;
     }
 
-   
+   .show
 
     .main_info{
         display: grid;
