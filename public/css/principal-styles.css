@@ -375,7 +375,7 @@ a{
     width: 100%;
     height: 100%;
     position: absolute;
-    background-color: #00000078;
+    background-color: transparent;
     border-radius: 20px 0px 0px 20px;
 }
 
@@ -664,5 +664,301 @@ a{
     }
     .info_wedding{
         transition: opacity 1s, transform 1.5s;
+    }
+}
+
+.principal{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100vh;
+}
+
+.photo img{
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+}
+
+.access_page{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+.logo_cn a{
+    display: inline-block;
+}
+.logo_cn img{
+    width: 30%;
+}
+.form_access{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 5%;
+}
+.form_access form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 20vh;
+}
+
+.title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5%;
+}
+.title h1{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 3rem;
+    color: #c0a080;
+}
+.title h2{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.8rem;
+    color: #c0a080;
+}
+
+#nombre,
+#numInvitados {
+    border: none;
+    border-bottom: 2px solid #c0a080;
+    background-color: transparent;
+    padding: 10px 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    color: rgb(96, 118, 96);
+    font-size: 1.8rem;
+    transition: border-bottom 0.3s, color 0.3s; 
+    width: 270px;
+    margin-top: 50px;
+}
+
+#nombre:focus,
+#numInvitados:focus {
+    border: none !important;
+    border-bottom: 2px solid #c0a080;
+    background-color: transparent; 
+    color: rgb(96, 118, 96); 
+}
+#nombre:active,
+#numInvitados:active {
+    border: none !important;
+    background-color: transparent; 
+    color: rgb(96, 118, 96); 
+}
+
+
+#nombre::-webkit-input-placeholder,
+#numInvitados::-webkit-input-placeholder {
+    border: none;
+    color: rgba(96, 118, 96, 0.4);
+}
+
+
+button{
+    margin-top: 30px;
+    border: none;
+    border-radius: 5px;
+    background-color: #c0a080;
+    color: #f5f5f5;
+    padding: 10px;
+    cursor: pointer;
+    transition: .4s;
+}
+button:hover{
+    transform: scale(1.1);
+}
+.form_access h2{
+    display: none;
+}
+.awesomplete ul{
+    position: absolute;
+    background-color: #f5f5f5cd;
+    border: 2px solid #c0a080;
+    width: 270px;
+    border-radius: 0 0 5px 5px;
+}
+.awesomplete ul li{
+    list-style: none;
+    padding: 10px;
+    color: rgb(96, 118, 96);
+    cursor: pointer;
+    border-bottom: 1px solid #c0a080;
+    font-size: 1.6rem;
+    text-align: center;
+    transition: .8s;
+}
+.awesomplete ul li:hover{
+    background-color: #c0a080;
+    color: #f5f5f5;
+}
+mark{
+    background-color:transparent !important;
+    padding:0;
+    margin:0;
+}
+.error-message{
+    color: rgb(125, 12, 12);
+}
+
+.enter-rvsp{
+    width: 100vw;
+    padding: 50px 0px 15px 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-left: 0;
+
+}
+.info-enter-rsvp{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 15px;
+}
+.info-enter-rsvp h2{
+    font-size: 4rem;
+    color: #c0a080;
+}
+.info-enter-rsvp p{
+    text-align: center;
+    font-size: 1.8rem;
+    color: #607660;
+    width: 50%;
+}
+.btn-enter-rsvp{
+    background-color: #c0a080;
+    color: #f5f5f5;
+    border-radius: 10px;
+    padding: 15px 35px;
+    font-size: 1.8;
+}
+.img-rsvp{
+    width: 100%;
+    position: relative;
+}
+.img-rsvp::after{
+    position: absolute;
+    content: 'Love isn’t something you find. Love is something that finds you. – Loretta Young';
+    color: #f5f5f5;
+    font-size: 1.6rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-60%, -50%);
+}
+.img-rsvp img{
+    width: 100%;
+    filter: brightness(50%);
+    border-radius: 0px 10px 10px 0px;
+}
+
+.frequent-qa {
+    overflow: hidden;
+    padding: 50px 0;
+}
+.frequent-qa h2{
+    font-family: Southland, sans-serif;
+    font-size: 5.6rem;
+    color: #607660;
+    text-align: center;
+}
+
+.questions {
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch; 
+}
+
+.qa {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    min-width: 40%;
+    height: auto;
+    scroll-snap-align: center;
+    box-shadow: 0 0 10px rgba(96, 118, 96, 0.5);
+    border-radius: 10px;
+    scroll-behavior: smooth;
+    margin: 10px;
+    padding: 25px 15px;
+}
+.question-title{
+    font-size: 2.4rem;
+    color: #c0a080;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: start;
+}
+.question-answer{
+    color: #607660;
+    font-size: 1.6rem;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+
+
+@media screen and (max-width: 720px) {
+    .principal{
+        display: grid;
+        grid-template-columns: 1fr;
+        height: 100vh;
+    }
+    .photo_web{
+        position: relative;
+    }
+    .photo_web img{
+        filter: brightness(.5);
+        object-position: bottom;
+    }
+    .logo_cn{
+        position: absolute;
+        top: 0%;
+        z-index: 2;
+    }
+    .logo_cn img{
+        filter: brightness(1.2);
+    }
+    .title{
+        position: absolute;
+        top: 18%;
+    }
+    .title h1{
+        font-size: 3.6rem;
+        color: #f5f5f5;
+    }
+    .title h2{
+        font-size: 2.4rem;
+        margin-top: 15px;
+        color: #f5f5f5;
+    }
+    
+    .title h1, h2{
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    .form_access{
+        position: absolute;
+        background-color: #f5f5f5bf;
+        bottom: 28%;  
+        border-radius: 5px;  
+        width: 300px;  
+        bottom: 22%;
+    }
+    .form_access h2{
+        display: block;
+        width: 100%;
+        text-align: center;
+        color: rgb(96, 118, 96);
+        text-shadow: none;
+        margin-bottom: 20px;
+    }
+    .awesomplete ul{
+        width: 270px;
     }
 }
