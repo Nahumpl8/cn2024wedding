@@ -236,7 +236,7 @@ a{
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-evenly;
-    gap: 150px;
+    gap: 100px;
     text-align: center;
 }
 .time div{
@@ -439,10 +439,10 @@ a{
     width: 80%;
 }
 .info_wedding h2{
-    font-family: Raleway, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: Outfit, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color: #c0a080;
     font-size: 4rem;
-    
+    font-weight: bold;
 }
 .info_wedding p{
     font-size: 1.6rem;
@@ -539,6 +539,8 @@ a{
     position: absolute;
     content: 'Love isn’t something you find. Love is something that finds you. – Loretta Young';
     color: #f5f5f5;
+    font-family: Outfit, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 400;
     font-size: 1.6rem;
     top: 50%;
     left: 50%;
@@ -787,8 +789,8 @@ a{
         font-size:5rem; 
     }
     .time{
-        column-gap: 30px;
-        row-gap: 60px;
+        column-gap: 150px;
+        row-gap: 30px;
     }
 
     .no_phone_img{

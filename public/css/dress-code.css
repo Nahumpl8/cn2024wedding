@@ -1,3 +1,20 @@
+@font-face {
+    font-family: titlesWedding;
+    src: url(../fonts/Vogue.ttf);
+
+}
+@font-face {
+    font-family: Southland;
+    src: url(../fonts/Southland.ttf);
+}
+@font-face {
+    font-family: Outfit;
+    src: url(../fonts/Outfit.ttf);
+}
+@font-face {
+    font-family: Raleway;
+    src: url(../fonts/Raleway.ttf);
+}
 *{
     margin: 0;
     padding: 0;
@@ -18,6 +35,7 @@ body{
     align-items: center;
     justify-content: center;
     width: 100%;
+    top: 0;
 }
 .desktop_menu{
     padding: 10px;
@@ -48,16 +66,17 @@ ul{
 .desktop_menu a{
     list-style: none;
     font-size: 1.8rem;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: Outfit, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bold;
     padding: 10px;
     border-radius: 50px;
     transition: background 1s;
-    color: #f8f8f8;
+    color: #c0a080;
 }
 
 .desktop_menu a:hover{
-    background-color: #f8f8f8;
-    color: #c0a080;
+    background-color: #c0a080;
+    color: #f8f8f8;
     cursor: pointer;
 }
 .desktop_scroll a{
@@ -94,89 +113,86 @@ a{
 .phone_menu{
     display: none;
 }
-.photo-dress{
-    width: 100vw;
-    background-color: rgb(96, 118, 96);
+
+/*Intro dress code*/
+.intro-dress-code{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    padding: 10% 5%;
-    padding-right: 0;
+    margin-top: 100px;
+    height: calc( 100vh - 100px);
+    overflow: hidden;
+    padding: 35px;
     place-content: center;
 }
-.photo-dress-text{
-    display: flex;
-    align-items: center;
-    justify-content: start;
-}
-.photo-dress-text h1{
-    font-size: 8rem;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    color: #f8f8f8;
-}
-.photo-dress-img{
-    border-radius: 20px 0px 0px 20px;
-}
-.photo-dress-img img{
-    width: 100%;
-    border-radius: 20px 0px 0px 20px;
-}
-.women-options{
+.intro-dress-code-text{
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    text-align: center;
-    padding: 5%;
+    align-items: start;
 }
-.women-options-text{
-    width: 50%;
-}
-.women-options-text h1{
-    color: #c0a080;
-    font-size: 4rem;
-}
-.women-options-text h2{
+.intro-dress-code-text h1{
+    font-family: titlesWedding, Arial, Helvetica, sans-serif;
+    font-size: 7.2rem;
     color: #607660;
-    font-size: 1.8rem;
-    margin-top: 24px;
+    margin-bottom: 20px;
 }
-.details-imgs{
-    padding: 5%;
-    padding-left: 0;
-    display: grid;
-    grid-template-columns: 1fr 4fr;
-    gap: 24px;
-}
-.details{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    text-align: start;
-}
-.details-text h2{
-    font-size: 1.8rem;
+.intro-dress-code-text h2{
+    width: 80%;
+    font-family: Outfit, Arial, Helvetica, sans-serif;
+    font-size: 2.2rem;
+    font-weight: 400;
     color: #333;
-}
-.imgs{
-    position: relative;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 12px;
+    margin-top: 20px;
 }
 
-.imgs img{
+
+.intro-dress-code-img{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    border-radius: 10px;
-    opacity: 0;
-    transform: translateY(40px);
-    scale: .8;
-    transition: all 1s ease;
+    gap: 30px;
 }
-.imgs img.show {
-    opacity: 1;
-    transform: translateY(0);
-    scale: 1;
+.intro-dress-code-women{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.intro-dress-code a{
+    position: absolute;
+    padding: 10px 15px;
+    bottom: 20px;
+    background-color: #607660;
+    color: #f8f8f8;
+    font-family: Outfit, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 10px;
+    letter-spacing: 1px;
+}
+.intro-dress-code-women img{
+    width: 70%;
+    object-fit: cover;
+    border-radius: 20px;
+    display: block;
+    filter: brightness(.8);
+}
+.intro-dress-code-men{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.intro-dress-code-men img{
+    width: 70%;
+    object-fit: cover;
+    border-radius: 20px;
+    display: block;
+    filter: brightness(.8);
 }
 
 
@@ -284,5 +300,23 @@ a{
         }
     }
     
+
+    /*Dresscode mobile*/
     
+    .intro-dress-code{
+        overflow: auto;
+        grid-template-columns: 1fr;
+    }
+    .intro-dress-code-text{
+        margin-top: 150px;
+    }
+    .intro-dress-code-text h1{
+        font-size: 5.2rem;
+    }
+    .intro-dress-code-text h2{
+        font-size: 1.8rem;
+    }
+    .intro-dress-code-img{
+        margin-top: 50px;
+    }
 }
