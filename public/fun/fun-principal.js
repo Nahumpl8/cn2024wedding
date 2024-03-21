@@ -32,24 +32,24 @@ function updateTimer() {
     const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
 
     if(days == 1){
-        document.querySelector('.days').innerHTML= `<span style="font-size:10rem; font-family: 'titlesWedding', sans-serif; font-weight:500; margin-bottom:-20px;">${days}</span> <br> día`;
+        document.querySelector('.days').innerHTML= `<span style="font-size:10rem; font-family: 'titlesWedding', sans-serif; font-weight:500; margin-bottom:-20px;">${days}</span> <br> <span style="font-family: Outfit, sans-serif;">día/<span>`;
     } else{
-        document.querySelector('.days').innerHTML= `<span class="number_time">${days}</span> <br> días`;
+        document.querySelector('.days').innerHTML= `<span class="number_time">${days}</span> <br> <span style="font-family: Outfit, sans-serif;">días</span>`;
     }
     if(hours == 1){
-        document.querySelector('.hours').innerHTML= `<span class="number_time">${hours}</span> <br> hora`;
+        document.querySelector('.hours').innerHTML= `<span class="number_time">${hours}</span> <br> <span style="font-family: Outfit, sans-serif;">hora</span>`;
     } else{
-        document.querySelector('.hours').innerHTML= `<span class="number_time">${hours}</span> <br> horas`;
+        document.querySelector('.hours').innerHTML= `<span class="number_time">${hours}</span> <br> <span style="font-family: Outfit, sans-serif;">horas</span>`;
     }
     if(minutes == 1){
-        document.querySelector('.minutes').innerHTML= `<span class="number_time">${minutes}</span> <br> minuto`;
+        document.querySelector('.minutes').innerHTML= `<span class="number_time">${minutes}</span> <br> <span style="font-family: Outfit, sans-serif;">minuto</span>`;
     } else{
-        document.querySelector('.minutes').innerHTML= `<span class="number_time">${minutes}</span> <br> minutos`;
+        document.querySelector('.minutes').innerHTML= `<span class="number_time">${minutes}</span> <br> <span style="font-family: Outfit, sans-serif;">minutos</span>`;
     }
     if(seconds == 1){
-        document.querySelector('.seconds').innerHTML= `<span class="number_time">${seconds}</span> <br> segundo`;
+        document.querySelector('.seconds').innerHTML= `<span class="number_time">${seconds}</span> <br> <span style="font-family: Outfit, sans-serif;">segundo</span>`;
     } else{
-        document.querySelector('.seconds').innerHTML= `<span class="number_time">${seconds}</span> <br> segundos`;
+        document.querySelector('.seconds').innerHTML= `<span class="number_time">${seconds}</span> <br> <span style="font-family: Outfit, sans-serif;">segundos</span>`;
     }
     
 }
@@ -157,16 +157,3 @@ setInterval(()=>{
     contenedor.style.left = left + "px";
 
 },1000/60);
-
-const questionHeaders = document.querySelectorAll('.question-header');
-
-    questionHeaders.forEach(header => {
-        header.addEventListener('click', function() {
-            const answer = this.nextElementSibling;
-            if (answer.style.display === 'block') {
-                answer.style.display = 'none';
-            } else {
-                answer.style.display = 'block';
-            }
-        });
-    });
