@@ -31,7 +31,84 @@
             width: 100vw;
             height: 100%;
             background-size: cover;
+            position: relative;
         }
+        .doors-open{
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index:10;
+        }
+        .side-one{
+            width: 50%;
+            height: 100%;
+            background-color: #B7904C;
+            animation: rightSideOpen 3s ease-in-out forwards;
+            animation-delay: 1s;
+        }
+        .side-two{
+            width: 50%;
+            height: 100%;
+            background-color: #B7904C;
+            animation: leftSideOpen 3s ease-in-out forwards;
+            animation-delay: 1s;
+        }
+        @keyframes leftSideOpen {
+            0%{
+                transform: translate(0);
+                opacity: 1;
+            }
+            100%{
+                transform: translate(50vw);
+                opacity: .9;
+                display: none;
+            }
+        }
+        @keyframes rightSideOpen {
+            0%{
+                transform: translate(0);
+                opacity: 1;
+            }
+            100%{
+                transform: translate(-50vw);
+                opacity: .9;
+                display: none;
+            }
+        }
+        
+
+        .stamp{
+            position: absolute;
+            width: 100%;
+            height: 100vh;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto;
+            animation: opacityStamp 2s ease-in-out forwards;
+        }
+        .stamp img{
+            width: 40%;
+        }
+        @keyframes opacityStamp {
+            0%{
+                opacity: 1;
+            }
+            100%{
+                opacity: 0;
+            }
+        }
+
         .invitaciones{
             padding: 2%;
             height: 100vh;
@@ -39,6 +116,7 @@
             display: grid;
             grid-template-columns: 2fr 3fr;
             gap: 2%;
+            animation: showInvitations 6s ease-in-out forwards;
         }
         .pases{
             display: flex;
@@ -131,6 +209,14 @@
         .get-out img{
             width: 5%;
         }
+        @keyframes showInvitations {
+            0%{
+                opacity: 0;
+            }
+            100%{
+                opacity: 1;
+            }
+        }
 
         @media screen and (max-width: 720px) {
             .pases_info{
@@ -154,6 +240,9 @@
                 transform: translateY(-90px);
                 height: fit-content;
             }
+            .stamp img{
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -162,9 +251,9 @@
     <section class="invitation_cn">
         <div class="invitaciones">
             <div class="pases">
-                <div class="sobre">
+                <!--<div class="sobre">
                     <img src="/images/c.png" alt="">
-                </div>
+                </div>-->
                 <div class="pases_info">
                     <h1>RSVP</h1>
                     <h2>Tu reservación está hecha para <%= usuario.numeroInvitados %> personas</h2>
@@ -193,10 +282,22 @@
                 </div>
             </div>
         </div>
+        <div class="options">
+            <a class="get-out" href="/logout"><img src="/images/getOut.png" alt="Salir de la invitación"></a>
+        </div>
     </section>
-    <div class="options">
-        <a class="get-out" href="/logout"><img src="/images/getOut.png" alt="Salir de la invitación"></a>
+    <div class="stamp">
+        <img src="/images/envelope-cn.png" alt="sello de la boda">
     </div>
+    <div class="doors-open">
+        <div class="side-one">
+
+        </div>
+        <div class="side-two">
+
+        </div>
+    </div>
+
     
     
 </body>
