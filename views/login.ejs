@@ -15,17 +15,23 @@
     <section class="principal">
         <div class="photo_web">
           <div class="photo">
-            <img src="/images/NahunClau_Preboda-19.webp" alt="">
+            <a href="/">
+                <img src="/images/NahunClau_Preboda-19.webp" alt="">
+            </a>
           </div>
         </div>
         <div class="access_page">
-            <div class="logo_cn"><img src="/images/goldLogo.png" alt="logo de la boda" href="/"></div> 
             <div class="title">
+                <div class="logo_cn_desktop">
+                    <a href="/">
+                        <img src="/images/goldLogo.png" alt="">
+                    </a>
+                </div> 
                 <h1>Claudia & Nahum</h1>
                 <h2>19 · Octubre · 2024</h2>
             </div>
             <div class="form_access">
-                    <h2>Ingresa con tu usuario y confirma tus pases para ver tu invitación</h2>
+                    <h2>Ingresa con tu nombre para ver tu invitación</h2>
                     <form action="/login" method="post">
                     <label for="nombre"></label>
                     <input type="text" id="nombre" name="nombre" placeholder="Selecciona tu nombre" autocomplete="on" required>
@@ -34,17 +40,19 @@
                     <input type="number" id="numInvitados" name="numInvitados" placeholder="Número de pases" readonly>
 
                     <button type="submit">Ver invitación</button>
-                    <div class="go_back">
-                        <a href="/">Regresar</a>
-                    </div>
                 </form>
 
             </div>
         </div>
         
-      </section>
+    </section>
+    <div class="logo_cn">
+        <a href="/">
+            <img src="/images/wedding.png" alt="">
+        </a>
+    </div> 
 
-    <!-- Agrega esta línea en la sección head de tu HTML -->
+    
     <script>
         const nombreInput = document.getElementById('nombre');
         const numInvitadosInput = document.getElementById('numInvitados');

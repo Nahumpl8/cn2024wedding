@@ -47,36 +47,32 @@
         .side-one{
             width: 50%;
             height: 100%;
-            background-color: #B7904C;
-            animation: rightSideOpen 3s ease-in-out forwards;
-            animation-delay: 1s;
+            background-color: rgb(144, 118, 68);
+            animation: rightSideOpen 4s ease-in-out forwards;
+            animation-delay: .5s;
         }
         .side-two{
             width: 50%;
             height: 100%;
-            background-color: #B7904C;
-            animation: leftSideOpen 3s ease-in-out forwards;
-            animation-delay: 1s;
+            background-color: rgb(144, 118, 68);
+            animation: leftSideOpen 4s ease-in-out forwards;
+            animation-delay: .5s;
         }
         @keyframes leftSideOpen {
             0%{
                 transform: translate(0);
-                opacity: 1;
             }
             100%{
                 transform: translate(50vw);
-                opacity: .9;
                 display: none;
             }
         }
         @keyframes rightSideOpen {
             0%{
                 transform: translate(0);
-                opacity: 1;
             }
             100%{
                 transform: translate(-50vw);
-                opacity: .9;
                 display: none;
             }
         }
@@ -98,7 +94,7 @@
             animation: opacityStamp 2s ease-in-out forwards;
         }
         .stamp img{
-            width: 40%;
+            width: 50%;
         }
         @keyframes opacityStamp {
             0%{
@@ -255,7 +251,7 @@
                     <img src="/images/c.png" alt="">
                 </div>-->
                 <div class="pases_info">
-                    <h1>RSVP</h1>
+                    <h1>Reservación</h1>
                     <h2>Tu reservación está hecha para <%= usuario.numeroInvitados %> personas</h2>
                     <h3>Esperamos contar con su presencia.</h3>
                 </div>
