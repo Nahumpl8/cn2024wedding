@@ -221,7 +221,7 @@ a{
     .phone_menu{
         width: 100%;
         display: flex;
-        justify-content: space-evenly;
+        justify-content: space-between;
         align-items: center;
     }
     .logo_phone img{
