@@ -209,6 +209,10 @@ a{
     color: #607660;
     text-decoration: underline;
 }
+.info-day p{
+    text-decoration: none;
+    margin-bottom: 10px;
+}
 .schedule-day-img{
     display: flex;
     align-items: center;
