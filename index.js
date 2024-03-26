@@ -82,6 +82,15 @@ app.get('/dress-code', async (req, res) => {
   }
 });
 
+app.get('/programa', async (req, res) => {
+  try {
+      res.render('programa', { });
+  } catch (error) {
+      console.error('Error al obtener información de la invitación:', error);
+      res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
+
 
 app.post('/login', async (req, res) => {
   try {

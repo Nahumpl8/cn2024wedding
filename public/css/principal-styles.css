@@ -77,14 +77,13 @@ ul{
     padding: 10px;
     font-weight: 400;
     border-radius: 50px;
-    transition: all ease-in-out .5s;
+    transition: all ease .5s;
     color: #f8f8f8;
 }
 
 .desktop_menu a:hover{
     color: #c0a080;
     background-color: #f8f8f8;
-    font-weight: 600;
     cursor: pointer;
 }
 .desktop_scroll a{
@@ -100,19 +99,9 @@ ul{
 }
 ul img{
     width: 5%;
-    animation: logoAppear 2s;
-    animation-timing-function: cubic-bezier(10);
     scale: 1.8;
 }
 
-@keyframes logoAppear {
-    from{
-        transform: scale(2.5) translateY(40px);
-    }
-    to{
-        transform: scale(1) translateY(0px);
-    }
-}
 a{
     text-decoration: none;
     font-size: 1.8rem;
@@ -471,6 +460,7 @@ a{
     justify-content: end;
     width: 100%;
 }
+
 .anchor a{
     padding: 10px 15px;
     background-color: #607660;
