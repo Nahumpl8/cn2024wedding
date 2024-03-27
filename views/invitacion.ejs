@@ -9,11 +9,41 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Grandiflora+One&family=MonteCarlo&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <title>Datos de Invitados</title>
     <style>
         @font-face {
             font-family: 'Hertine';
-            src: url(/fonts/Hertine.ttf);
+            src: url(fonts/Hertine.ttf);
+        }
+        @font-face {
+            font-family: cinzel;
+            src: url(fonts/Cinzel.ttf);
+        }
+        @font-face {
+            font-family: titlesWedding;
+            src: url(fonts/Vogue.ttf);
+
+        }
+        @font-face {
+            font-family: Outfit;
+            src: url(fonts/Outfit.ttf);
+        }
+        @font-face {
+            font-family: Raleway;
+            src: url(fonts/Raleway.ttf);
+        }
+        @font-face {
+            font-family: Autography;
+            src: url(fonts/Autography.otf);
+        }
+        @font-face {
+            font-family: Signature;
+            src: url(fonts/Signature.ttf);
+        }
+        @font-face {
+            font-family: Vogue;
+            src: url(fonts/Vogue.ttf);
         }
         *{
             margin: 0;
@@ -25,13 +55,6 @@
         }
         body{
             background-color: #f5f5f5;
-        }
-        .invitation_cn{
-            background-image: url(/images/fondo-invitacion.png);
-            width: 100vw;
-            height: 100%;
-            background-size: cover;
-            position: relative;
         }
         .doors-open{
             position: absolute;
@@ -47,14 +70,14 @@
         .side-one{
             width: 50%;
             height: 100%;
-            background-color: rgb(144, 118, 68);
+            background-color: #A97F55;
             animation: rightSideOpen 4s ease-in-out forwards;
             animation-delay: .5s;
         }
         .side-two{
             width: 50%;
             height: 100%;
-            background-color: rgb(144, 118, 68);
+            background-color: #A97F55;
             animation: leftSideOpen 4s ease-in-out forwards;
             animation-delay: .5s;
         }
@@ -81,7 +104,7 @@
         .stamp{
             position: absolute;
             width: 100%;
-            height: 100vh;
+            height: 100%;
             z-index: 100;
             display: flex;
             align-items: center;
@@ -106,8 +129,8 @@
         }
 
         .invitaciones{
-            padding: 2%;
-            height: 100vh;
+            padding: 20px;
+            height: 120vh;
             width: 100vw;
             display: grid;
             grid-template-columns: 2fr 3fr;
@@ -118,7 +141,8 @@
             display: flex;
             flex-direction: column;
             align-items: end;
-            justify-content: space-between;
+            justify-content: space-evenly;
+            
         }
         .sobre img{
             width: 100%;
@@ -128,83 +152,267 @@
 
         .pases_info{
             background-color: #dbdbdb;
-            width: 65%;
-            height: 50%;
+            width: 80%;
+            height: auto;
             margin-right: 50px;
-            box-shadow: -15px 15px 5px rgba(0, 0, 0, 0.2); 
+            box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.2); 
             z-index: 1;
+            padding: 20px 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: start;
+            gap: 10px;
         }
+        .pases_info h1{
+            font-size: 3.2rem;
+            color: #A97F55;
+            font-family: titlesWedding, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-weight: 600;
+            width: 100%;
+            text-align: center;
+        }
+        .pases_info h2{
+            font-size: 2rem;
+            color: #607660;
+            font-family: Outfit, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-weight: 200;
+            text-align: center;
+        }
+        .pases_info h3{
+            font-size: 5.2rem;
+            color: #A97F55;
+            font-family: cinzel, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-weight: 300;
+            width: 100%;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .pases_info h4{
+            font-size: 2rem;
+            color: #607660;
+            font-family: Outfit, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-weight: 700;
+            text-align: center;
+        }
+        .pases_info p{
+            font-size: 1.6rem;
+            color: #607660;
+            font-family: Outfit, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-weight: 500;
+            text-align: center;
+        }
+        .pases_info h5{
+            font-size: 1.6rem;
+            color: #607660;
+            font-family: Outfit, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-weight: 300;
+            text-align: center;
+        }
+        .pases_info a{
+            font-size: 1.6rem;
+            color: #A97F55;
+            font-family: Outfit, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-weight: 700;
+            text-align: center;
+            text-decoration: underline;
+        }
+
+
+
+
         .info{
             display: flex;
             align-items: end;
             z-index: 1;
         }
         .papel_grande{
-            width: 75%;
-            height: 90%;
+            width: 90%;
+            height: 100%;
             background-color: #dbdbdb;
-            box-shadow: -15px 15px 5px rgba(0, 0, 0, 0.2); 
+            box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.2); 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: start;
         }
         .logo_cn{
             display: flex;
-            justify-content: end;
+            justify-content: center;
+            align-items: center;
+            
         }
         .logo_cn img{
-            width: 20%;
-            transform: scale(1.8) translateX(-20px) translateY(10px);
+            width: 15%;
         }
-        h1{
-            color: #B7904C;
-        }
+        
         .invitados{
             display: flex;
             flex-direction: column;
-            align-items: start;
+            align-items: center;
             justify-content: space-between;
             width: 100%;
-            padding: 20px;
-            gap: 10px;
+            padding: 10px 20px;
+            padding-top: 0;
+            gap: 20px;
         }
         .invitados h2{
-            font-size: 2.4rem;
+            font-size: 2rem;
             color: rgb(96, 118, 96);
-            font-family: 'Grandiflora One', cursive;
-            text-align: start;
+            font-family: cinzel, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-weight: 600;
+            width: 100%;
+            text-align: center;
+            margin: 20px 0;
         }
         .invitados h2:not(:first-child){
             font-size: 1.8rem;
         }
         .invitados h1{
-            font-size: 3rem;
-            color: #B7904C;
-            font-family: 'Grandiflora One', cursive; /*'Hertine', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;*/
-            font-weight: 600;
+            font-size: 5.2rem;
+            color: #A97F55;
+            font-family: cinzel, serif;
+            font-weight: 100;
             width: 100%;
+            letter-spacing: 2px;
             text-align: center;
         }
         .invitados p{
             font-size: 1.8rem;
             color: rgb(96, 118, 96);
-            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-            text-align: justify;
+            font-family: Outfit, Georgia, Times, 'Times New Roman', serif;
+            text-align: center;
+            font-weight: 200;
         }
-        .invitados h3{
-            color: rgb(255, 128, 0);
+        .invitados span{
+            margin-top: 30px;
+            font-size: 1.8rem;
+            color: #A97F55;
+            font-family: Outfit, Georgia, Times, 'Times New Roman', serif;
+            text-align: center;
+            font-weight: 200;
+        }
+        .invitados a{
+            font-size: 1.6rem;
+            color: #A97F55;
+            font-family: Outfit, Georgia, Times, 'Times New Roman', serif;
+            text-align: center;
+            font-weight: 500;
+            text-decoration: underline;
         }
         .pases_info_phone{
             display: none;
         }
+        .invitados h6{
+            font-size: 2rem;
+            color: #607660;
+            font-family: Outfit, serif;
+            font-weight: 300;
+            width: 100%;
+            letter-spacing: 2px;
+            text-align: center;
+        }
         .datos_boda{
             width: 100%;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
             padding: 15px 0;
         }
+        .date{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            border-right: 1px solid #607660;
+        }
+        .date h2{
+            font-size: 7.2rem;
+            color: #A97F55;
+            font-family: cinzel, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-weight: 600;
+            width: 100%;
+            text-align: center;
+            padding: 5px 10px;
+            border-right: 1px solid #607660;
+        }
+        .month-year{
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            justify-content: center;
+            gap: 5px;
+            padding: 5px 15px;
+        }
+        .month-year h3{
+            font-size: 2rem;
+            color: #A97F55;
+            font-family: Outfit, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-weight: 300;
+            width: 100%;
+            text-align: center;
+        }
+
+        .month-year h4{
+            font-size: 2.8rem;
+            color: #A97F55;
+            font-family: cinzel, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-weight: 300;
+            width: 100%;
+            text-align: center;
+        }        
+        .place{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5px 10px;
+        }
+        .place h2{
+            font-size: 2.8rem;
+            color: #A97F55;
+            font-family: Outfit, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-weight: 300;
+            width: 100%;
+            text-align: center;
+            display: block;
+        }
+        .pases-phone{
+            display: none;
+        }
+        .parents-name{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        .parents-name h3{
+            font-size: 1.6rem;
+            color: #607660;
+            font-family: cinzel, Georgia, Times, 'Times New Roman', serif;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        .her-parents{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+        .him-parents{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
         .get-out img{
             width: 5%;
         }
+
+
         @keyframes showInvitations {
             0%{
                 opacity: 0;
@@ -215,11 +423,17 @@
         }
 
         @media screen and (max-width: 720px) {
-            .pases_info{
+            .desktop-rvsp{
                 display: none;
             }
             .invitaciones{
-                grid-template-columns: 1fr;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 20px;
             }
             .sobre img{
                 width: 100%;
@@ -233,11 +447,51 @@
             }
             .papel_grande{
                 width: 90%;
-                transform: translateY(-90px);
-                height: fit-content;
+                height: 100%;
+                transform: translateY(-100px);
+            }
+            .invitados h1{
+                font-size: 2.8rem;
+            }
+            .invitados h2{
+                margin: 0;
+            }
+            .parents-name h3{
+                font-size: 1.6rem;
+            }
+            .date h2{
+                font-size: 5.2rem;
+                font-weight: 400;
+            }
+            .place h2{
+                font-size: 1.6rem;
+            }
+            .parents-name h3 {
+                font-size: 1.2rem;
+                color: #607660;
+                font-family: cinzel, Georgia, Times, 'Times New Roman', serif;
+                font-weight: 700;
+                text-transform: uppercase;
+                text-align: center;
             }
             .stamp img{
                 width: 100%;
+            }
+            .pases-phone{
+                width: 90%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-evenly;
+                transform: translateY(-100px);
+            }
+            .pases_info{
+                width: 100%;
+                margin: 0;
+            }
+            .pases_info p{
+                font-size: 1.4rem;
+                padding: 0 20px;
             }
         }
     </style>
@@ -247,13 +501,18 @@
     <section class="invitation_cn">
         <div class="invitaciones">
             <div class="pases">
-                <!--<div class="sobre">
+                <div class="sobre">
                     <img src="/images/c.png" alt="">
-                </div>-->
-                <div class="pases_info">
-                    <h1>Reservación</h1>
-                    <h2>Tu reservación está hecha para <%= usuario.numeroInvitados %> personas</h2>
-                    <h3>Esperamos contar con su presencia.</h3>
+                </div>
+                <div class="pases_info desktop-rvsp">
+                    <h1>RSVP</h1>
+                    <p>Hay momentos en la vida que son mágicos por si solos, pero compartirlos con personas que amamos los hace inolvidables</p>
+                    <h2>Tu reservación está hecha para</h2>
+                    <h3><%= usuario.numeroInvitados %></h3>
+                    <h4>personas</h4>
+                    <h5>- SOLO ADULTOS -</h5>
+                    <h5 style="margin-top: 20px;">Más detalles en</h5>
+                    <a href="https://claudiaynahum.com">www.claudiaynahum.com</a>
                 </div>
             </div>
             <div class="info">
@@ -262,24 +521,51 @@
                         <img src="/images/goldLogo.png" alt="logo_boda">
                     </div>
                     <div class="invitados">
-                        <h2><%= usuario.nombre %>,</h2>
-                        <p>con gran alegría y emoción, los novios:</p>
-                        <h1>CLAUDIA & NAHUM</h1>  <p> tienen el honor de invitarte a la celebración de su unión matrimonial.</p>
-                        <p>Dicha boda se llevará a cabo el día</p>
-                        <div class="datos_boda">
-                            <h2 style="text-align: center; padding: 0px 20px;" >19 de OCTUBRE del 2024 a las 15:00 hrs</h2>
-                            <h2 style="text-align: center; padding: 0px 20px;" >Hotel Galería Plaza San Jerónimo, CDMX</h2>
+                        <h2><%= usuario.nombre %></h2>
+                        <h6>¡NOS CASAMOS!</h6>
+                        <h1>CLAUDIA & NAHUM</h1>  
+                        <p> Con la bendición de Dios y en compañia de nuestros padres</p>
+                        <div class="parents-name">
+                            <div class="her-parents">
+                                <h3>Claudia Franco Ramírez</h3>
+                                <h3>Antonio del Valle González</h3>
+                            </div>
+                            <div class="him-parents">
+                                <h3>Consuelo López Cervantes</h3>
+                                <h3>Porfirio Jaime Pérez Ruiz</h3>
+                            </div>
                         </div>
-                        <p>Tu presencia en este día tan especial sería un honor para nosotros. Apreciamos profundamente la amistad y el amor que nos han brindado a lo largo de los años y nos gustaría compartir este momento significativo con ustedes.</p>
+                        <p>Tenemos el placer de compartir con ustedes nuestra boda, que se celebrará el próximo</p>
+                        <div class="datos_boda">
+                            <div class="date">
+                                <h2>19</h2>
+                                <div class="month-year">
+                                    <h3>Octubre</h3>
+                                    <h4>2024</h4>
+                                </div>
+                            </div>
+                            <div class="place">
+                                <h2>Hotel Galería Plaza San Jerónimo, CDMX</h2>
+                            </div>
+                        </div>
+                        <p>Su presencia durante este fin de semana sería un honor para nosotros</p>
+                        <span>MESA DE REGALOS</span>
+                        <a href="/">ZEPIKA</a>
                     </div>
                 </div>
-                <div class="pases_info_phone">
-                    <h3>Acompañantes: <%= usuario.numeroInvitados %></h3>
+            </div>
+            <div class="pases-phone">
+                <div class="pases_info">
+                    <h1>RSVP</h1>
+                    <p>Hay momentos en la vida que son mágicos por si solos, pero compartirlos con personas que amamos los hace inolvidables</p>
+                    <h2>Tu reservación está hecha para</h2>
+                    <h3><%= usuario.numeroInvitados %></h3>
+                    <h4>personas</h4>
+                    <h5>- SOLO ADULTOS -</h5>
+                    <h5 style="margin-top: 20px;">Más detalles en</h5>
+                    <a href="https://claudiaynahum.com">www.claudiaynahum.com</a>
                 </div>
             </div>
-        </div>
-        <div class="options">
-            <a class="get-out" href="/logout"><img src="/images/getOut.png" alt="Salir de la invitación"></a>
         </div>
     </section>
     <div class="stamp">
@@ -293,8 +579,5 @@
 
         </div>
     </div>
-
-    
-    
 </body>
 </html>

@@ -139,14 +139,21 @@ a{
     color: #f8f8f8;
 }
 .introduction-program-content h1{
-    font-size: 5.6rem;
+    font-size: 8.4rem;
     font-family: titlesWedding, sans-serif;
     margin: 10px 0;
+    background: (to right top, #fff, #fff, #fff, #c0a080)(to right top, #fff, #fff, #fff, #c0a080);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
 }
 .introduction-program-content p{
-    width: 50%;
-    font-size: 1.8rem;
+    width: 40%;
+    font-size: 2.4rem;
     font-family: Outfit, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #f8f8f8;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+    
 }
 
 
@@ -345,6 +352,23 @@ a{
         display: flex;
         align-items: center;
         justify-content: start;
+    }
+    /*Slider info*/
+    .introduction-program-content{
+        bottom: 15%;
+        left: 2%;
+        text-align: start;
+        color: #f8f8f8;
+    }
+    .introduction-program-content h1{
+        font-size: 5.4rem;
+        font-family: titlesWedding, sans-serif;
+    }
+    .introduction-program-content p{
+        width: 70%;
+        font-size: 1.6rem;
+        font-family: Outfit, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-weight: 300;
     }
 
 
