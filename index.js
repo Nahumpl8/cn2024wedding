@@ -29,6 +29,7 @@ const Invitado = mongoose.model('Invitado', {
   nombre: String,
   contraseña: String,
   numeroInvitados: Number,
+  weekend: Number,
 });
 
 app.set('view engine', 'ejs');
