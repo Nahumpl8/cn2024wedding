@@ -12,21 +12,23 @@
             <ul>
                 <li><a href="/">Inicio</a></li>
                 <li><a href="#">Programa</a></li>
-                <img src="/images/goldLogo.png" alt="logo de la boda" class="principal_logo_desktop">
+                <img src="/images/wedding.png" alt="logo de la boda" class="principal_logo_desktop">
                 <li><a href="#main_details">Información</a></li>
                 <li><a href="/login">RSVP</a></li>
             </ul>
         </nav>
         <nav class="phone_menu">
             <div class="logo_phone">
-                <img src="/images/goldLogo.png" alt="" class="principal_logo">
+                <a href="/" class="logo-btn">
+                    <img src="/images/goldLogo.png" alt="" class="principal_logo">
+                </a>
             </div>
             <div class="menu_p">
                 <img src="/images/ListGold.png" alt="" class="menu_icon">
             </div>
             <ul class="nav_phone_menu">
-                <li><a href="/">Inicio</a></li>
-                <li><a href="#">Programa</a></li>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="">Programa</a></li>
                 <li><a href="#main_details">Información</a></li>
                 <li><a href="/login">RSVP</a></li>
             </ul>
@@ -97,6 +99,32 @@
             </div>
         </div>
     </section>
+
+    <footer class="final-section">
+        <div class="footer-info">
+            <h2 class="footer-text-web">Si tienes alguna duda, <br>no dudes en contactarnos.</h2>
+            <h1>CLAUDIA & NAHUM</h1>
+            <h3>19 · OCTUBRE · 2024</h3>
+        </div>
+        <div class="email-contact">
+            <h2 class="footer-text-phone">Si tienes alguna duda, <br>no dudes en contactarnos.</h2>
+            <form action="" method="">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre"><br>
+              
+                <label for="correo">Correo electrónico</label>
+                <input type="email" id="correo" name="correo" placeholder="tucorreo@gmail.com" required><br>
+              
+                <label for="asunto">Asunto</label>
+                <input type="text" id="asunto" name="asunto" placeholder="Asunto del correo" required><br>
+              
+                <label for="mensaje">Mensaje</label><br>
+                <textarea id="mensaje" name="mensaje"  placeholder="Escribe aquí tu mensaje" required></textarea><br>
+              
+                <button id="btn-email" type="submit">Enviar correo</button>
+              </form>
+        </div>
+    </footer>
     
     <script src="/fun/fun-programa.js"></script>
 </body>

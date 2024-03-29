@@ -71,8 +71,8 @@ const img2 = document.querySelector('.img-2')
 const img3 = document.querySelector('.img-3')
 
 btnShowInfoDay1.addEventListener('click', () => {
-    infoDay1.classList.toggle('show')
-    if(infoDay1.classList.contains('show')){
+    infoDay1.classList.toggle('show-information')
+    if(infoDay1.classList.contains('show-information')){
         btnShowInfoDay1.textContent = 'Ver menos -'
         img1.style.filter = 'opacity(.5)'
         
@@ -82,8 +82,8 @@ btnShowInfoDay1.addEventListener('click', () => {
     }
 }) 
 btnShowInfoDay2.addEventListener('click', () => {
-    infoDay2.classList.toggle('show')
-    if(infoDay2.classList.contains('show')){
+    infoDay2.classList.toggle('show-information')
+    if(infoDay2.classList.contains('show-information')){
         btnShowInfoDay2.textContent = 'Ver menos -'
         img2.style.filter = 'opacity(.5)'
         
@@ -93,8 +93,8 @@ btnShowInfoDay2.addEventListener('click', () => {
     }
 }) 
 btnShowInfoDay3.addEventListener('click', () => {
-    infoDay3.classList.toggle('show')
-    if(infoDay3.classList.contains('show')){
+    infoDay3.classList.toggle('show-information')
+    if(infoDay3.classList.contains('show-information')){
         btnShowInfoDay3.textContent = 'Ver menos -'
         img3.style.filter = 'opacity(.5)'
         
