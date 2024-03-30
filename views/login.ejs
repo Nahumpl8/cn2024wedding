@@ -57,9 +57,11 @@
         const nombreInput = document.getElementById('nombre');
         const numInvitadosInput = document.getElementById('numInvitados');
         const opcionesNombre = JSON.parse('<%- JSON.stringify(opcionesNombre) %>');
+        const opcionesNombreLimpio = opcionesNombre.filter(nombre => nombre !== null);
+
 
         const awesomplete = new Awesomplete(nombreInput, {
-            list: opcionesNombre,
+            list: opcionesNombreLimpio,
             minChars: 3,
             replace: function(text) {
                 nombreInput.value = text.value;
