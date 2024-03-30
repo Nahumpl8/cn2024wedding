@@ -14,44 +14,48 @@
         <nav class="desktop_menu">
             <ul>
                 <li><a href="/">Inicio</a></li>
-                <li><a href="">Programa</a></li>
+                <li><a href="/programa">Programa</a></li>
                 <img src="/images/wedding.png" alt="logo de la boda" class="principal_logo_desktop">
-                <li><a href="/#main_details">Información</a></li>
-                <li><a href="/login">RSVP</a></li>
+                <li><a href="/dress-code">Dress Code</a></li>
+                <li><a href="/login">Invitación</a></li>
             </ul>
         </nav>
         <nav class="phone_menu">
             <div class="logo_phone">
-                <img src="/images/goldLogo.png" alt="" class="principal_logo">
+                <a href="/" class="logo-btn">
+                    <img src="/images/goldLogo.png" alt="" class="principal_logo">
+                </a>
             </div>
             <div class="menu_p">
                 <img src="/images/ListGold.png" alt="" class="menu_icon">
             </div>
             <ul class="nav_phone_menu">
-                <li><a href="/">Inicio</a></li>
-                <li><a href="">Programa</a></li>
-                <li><a href="#main_details">Información</a></li>
-                <li><a href="/login">RSVP</a></li>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="/programa">Programa</a></li>
+                <li><a href="/dress-code">Dress Code</a></li>
+                <li><a href="/login">Invitación</a></li>
             </ul>
         </nav>
     </header>
+    <section class="introduction-program">
+        <div class="background-image-program">
+             <img src="/images/hotel-plaza.webp" alt="Foto de claudia y nahum">
+         </div>
+         <div class="introduction-program-content">
+             <h1>HOTELES</h1>
+             <p>Te dejamos el el tipo de vestimenta de la boda.</p>
+         </div>  
+     </section>
 
     <div class="introduction_hotels">
-        <div class="title_and_text">
-            <h2>Hospejade</h2>
-        </div>
+        <h2>Nuestras mejores recomendaciones</h2>
         <div class="slider_hoteles">
-            <div class="info_logo_bed">
-                <h3>Te dejamos algunas opciones de hospedaje para el día de nuestra boda</h3>
-                <img src="/images/Bed.png" alt="bed_icon">
-            </div>
-
             <div class="card_hotel">
                 <div class="image_hotel">
                     <img src="https://image-tc.galaxy.tf/wijpeg-79plblcxns9uqg4uz9v6wqw4v/_photo.jpg" alt="">
                 </div>
                 <div class="info_hotel">
-                    <h2>Hotel Fiesta Americana Hacienda San Antionio</h2>
+                    <h3>Hotel Fiesta Americana Hacienda San Antionio</h3>
                     <p>A menos de 10 minutos</p> 
                 </div>
                 <div class="link">
@@ -64,7 +68,7 @@
                     <img src="https://radissoncuernavaca.mx/theme/img/bg1_1.jpg" alt="radisson_hotel">
                 </div>
                 <div class="info_hotel">
-                    <h2>Radisson Quinta Rubelinas Cuernavaca</h2>
+                    <h3>Radisson Quinta Rubelinas Cuernavaca</h3>
                     <p>A menos de 10 minutos</p> 
                 </div>
                 <div class="link">
@@ -77,7 +81,7 @@
                     <img src="https://digital.ihg.com/is/image/ihg/holiday-inn-express-and-suites-cuernavaca-5458409206-3x2?fmt=jpg&jpegSize=500&wid=733&qlt=85&resMode=sharp2&op_usm=1.75,0.3,2.0" alt="holidayInn_hotel">
                 </div>
                 <div class="info_hotel">
-                    <h2>Holiday Inn Express & Suites Cuernavaca</h2>
+                    <h3>Holiday Inn Express & Suites Cuernavaca</h3>
                     <p>A menos de 20 minutos</p> 
                 </div>
                 <div class="link">
@@ -90,7 +94,7 @@
                     <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/487227411.jpg?k=8842daab30b47a2006dc707f55582517852cc5d8438033935772747bf0d01357&o=&hp=1" alt="">
                 </div>
                 <div class="info_hotel">
-                    <h2>Hotel Boutique El Laurel</h2>
+                    <h3>Hotel Boutique El Laurel</h3>
                     <p>A menos de 10 minutos</p> 
                 </div>
                 <div class="link">
@@ -104,8 +108,8 @@
                     <img src="https://lasmananitas.com.mx/images/garden/1.jpg" alt="">
                 </div>
                 <div class="info_hotel">
-                    <h2>Las Mañanitas Hotel, Garden, Restaurant and Spa</h2>
-                    <p>A 35 minutos aproximadamente</p> 
+                    <h3>Las Mañanitas Hotel, Garden, Restaurant and Spa</h3>
+                    <p>A menos de 35 minutos </p> 
                 </div>
                 <div class="link">
                     <a href="https://lasmananitas.com.mx/" target="_blank">Visitar</a>
@@ -118,7 +122,7 @@
                     <img src="https://www.hotelhaciendadecortes.com.mx/theme/img/bg1_4.jpg" alt="">
                 </div>
                 <div class="info_hotel">
-                    <h2>Hotel & Spa Hacienda de Cortés</h2>
+                    <h3>Hotel & Spa Hacienda de Cortés</h3>
                     <p>A menos de 25 minutos</p> 
                 </div>
                 <div class="link">
@@ -126,21 +130,34 @@
                 </div>
             </div>
 
-
-            <div class="card_hotel">
-                <div class="image_hotel">
-                    <img src="https://image-tc.galaxy.tf/wijpeg-jphdq6bw4dbdi1qm6ex63j5e/_photo.jpg" alt="">
-                </div>
-                <div class="info_hotel">
-                    <h2>Hotel Fiesta Inn Cuernavaca</h2>
-                    <p>A 25 minutos aproximadamente</p> 
-                </div>
-                <div class="link">
-                    <a href="https://www.fiestainn.com/hoteles/fiesta-inn-cuernavaca" target="_blank">Visitar</a>
-                </div>
-            </div>
         </div>
     </div>
+
+    <footer class="final-section">
+        <div class="footer-info">
+            <h2 class="footer-text-web">Si tienes alguna duda, <br>no dudes en contactarnos.</h2>
+            <h1>CLAUDIA & NAHUM</h1>
+            <h3>19 · OCTUBRE · 2024</h3>
+        </div>
+        <div class="email-contact">
+            <h2 class="footer-text-phone">Si tienes alguna duda, <br>no dudes en contactarnos.</h2>
+            <form action="" method="">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre"><br>
+              
+                <label for="correo">Correo electrónico</label>
+                <input type="email" id="correo" name="correo" placeholder="tucorreo@gmail.com" required><br>
+              
+                <label for="asunto">Asunto</label>
+                <input type="text" id="asunto" name="asunto" placeholder="Asunto del correo" required><br>
+              
+                <label for="mensaje">Mensaje</label><br>
+                <textarea id="mensaje" name="mensaje"  placeholder="Escribe aquí tu mensaje" required></textarea><br>
+              
+                <button id="btn-email" type="submit">Enviar correo</button>
+              </form>
+        </div>
+    </footer>
 
     
 

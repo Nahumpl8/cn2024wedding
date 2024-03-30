@@ -350,7 +350,7 @@ input, textarea{
 
 
 
-@media screen and (max-width: 690px) {
+@media screen and (max-width: 780px) {
     .desktop_menu{
         display: none;
     }
@@ -453,7 +453,7 @@ input, textarea{
     }
     /*Slider info*/
     .introduction-program-content{
-        bottom: 15%;
+        bottom: 12%;
         left: 2%;
         text-align: start;
         color: #f8f8f8;

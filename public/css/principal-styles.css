@@ -888,6 +888,10 @@ input, textarea{
         background-color: #00000078;
         border-radius: 20px 0px 0px 20px;
     }
+    .anchor a:hover{
+        background-color: #607660;
+        color: #f8f8f8;
+    }
     .btn-enter-rsvp{
         padding: 10px 25px;
         font-size: 1.6rem;
