@@ -157,3 +157,5 @@ setInterval(()=>{
     contenedor.style.left = left + "px";
 
 },1000/60);
+
+

@@ -9,6 +9,9 @@
     <title>Claudia & Nahum</title>
     <link rel="stylesheet" href="css/principal-styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.2/awesomplete.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"></script>
+
 </head>
 <body>
     <header class="navbar">
@@ -96,8 +99,6 @@
             <span>CLAUDIA&nbsp&&nbspNAHUM&nbsp2024</span>
         </div>
     </div>
-
-
     <div class="important_details" id="main_details">
         <div class="text_details">
             <h2>Acerca del día</h2>
@@ -191,7 +192,28 @@
         <div class="info-enter-rsvp">
             <h2>Reserva tu lugar</h2>
             <p>Queremos que seas parte de este momento tan importante para nosotros, confirma tu asistencia</p>
-            <a href="/login" class="btn-enter-rsvp">RSVP</a>
+            <div class="form-home">
+                <form method="POST" id="rsvp-method">
+                    <label for="nombre"></label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Selecciona tu nombre" autocomplete="on" required>
+                    
+                    <label for="numInvitados"></label>
+                    <input type="number" id="numInvitados" name="numInvitados" placeholder="¿Cuántos asistirán?" min="0" required>
+                    
+                    <label for="asistencia"></label>
+                    <select name="asistencia" id="asistencia" required>
+                        <option value="" disabled selected>Selecciona una opción</option>
+                        <option value="si">Sí, asistiré</option>
+                        <option value="no">No, no podré asistir</option>
+                    </select><br>
+                    
+                    <button type="button" id="btn-submit">Confirmar asistencia</button>
+                </form>
+                <div id="confirmacion" style="display: none;">
+                    <p>Gracias por confirmar tu asistencia</p>
+                    <button id="otraConfirmacion">Hacer otra confirmación</button>
+                </div>
+            </div>
         </div>
     </section>
     <section class="frequent-qa">
@@ -242,8 +264,8 @@
         <div class="email-contact">
             <h2 class="footer-text-phone">Si tienes alguna duda, <br>no dudes en contactarnos.</h2>
             <form action="/send-email" method="POST">
-                <label for="nombre">Nombre</label>
-                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre"><br>
+                <label for="nombre-email">Nombre</label>
+                <input type="text" id="nombre-email" name="nombre" placeholder="Tu nombre"><br>
             
                 <label for="correo">Correo electrónico</label>
                 <input type="email" id="correo" name="correo" placeholder="tucorreo@gmail.com" required><br>
@@ -267,7 +289,8 @@
     <script src="/fun/fun-principal.js"></script>
     <script>
         $(document).ready(function() {
-            $('form').on('submit', function(event) {
+            $('form[action="/send-email"]').on('submit', function(event) {
+
                 event.preventDefault(); 
         
                 var formData = $(this).serialize(); 
@@ -282,7 +305,7 @@
                         $('form')[0].reset();
                         $('#btn-email').css('display', 'none');
                         $('#correo').css('display', 'none');
-                        $('#nombre').css('display', 'none');
+                        $('#nombre-email').css('display', 'none');
                         $('#asunto').css('display', 'none');
                         $('#mensaje').css('display', 'none');
                         $('form').append('<button id="btn-another-email">Enviar otro correo</button>');
@@ -295,18 +318,135 @@
             });
 
             $(document).on('click', '#btn-another-email', function() {
-                // muestra los elementos del formulario
+                // Muestra los elementos del formulario
                 $('.message-response').remove();
                 $('.message-err').remove();
                 $('#btn-email').css('display', 'block');
                 $('#correo').css('display', 'block');
-                $('#nombre').css('display', 'block');
+                $('#nombre-email').css('display', 'block');
                 $('#asunto').css('display', 'block');
                 $('#mensaje').css('display', 'block');
-                // elimina el botón "Enviar otro correo"
+                
+                // Elimina el botón "Enviar otro correo"
                 $(this).remove();
+                
+                // Restablece el formulario a su estado original
+                $('form[action="/send-email"]')[0].reset();
             });
         });
     </script>
+    <script>
+        // Obtener elementos de entrada
+        const nombreInput = document.getElementById('nombre');
+        const numInvitadosInput = document.getElementById('numInvitados');
+        const rsvpForm = document.getElementById('rsvp-method');
+        const responseRsvp = document.getElementById('confirmacion')
+        const otherButton = document.getElementById('otraConfirmacion');
+    
+        // Obtener opciones de nombre y filtrar las que no son nulas
+        const opcionesNombre = JSON.parse('<%- JSON.stringify(opcionesNombre) %>');
+        const opcionesNombreLimpio = opcionesNombre.filter(nombre => nombre !== null);
+    
+        // Inicializar Awesomplete en el campo de nombre
+        const awesomplete = new Awesomplete(nombreInput, {
+            list: opcionesNombreLimpio,
+            minChars: 3,
+            replace: function(text) {
+                nombreInput.value = text.value;
+                nombreInput.dispatchEvent(new Event('input'));
+            }
+        });
+    
+        // Función para obtener el número máximo de invitados desde la base de datos
+        async function obtenerNumeroMaximoInvitados(nombre) {
+            try {
+                const response = await fetch(`/getInvitados/${nombre}`);
+                const data = await response.json();
+                if (data && data.numInvitados) {
+                    numInvitadosInput.value = data.numInvitados;
+                    return data.numInvitados;
+                }
+            } catch (error) {
+                console.error('Error al obtener el número máximo de invitados:', error);
+            }
+            return 0; // Valor predeterminado si hay un error o no se encuentra el número máximo
+        }
+    
+        // Agregar evento de cambio al campo de nombre para actualizar el campo de invitados y el número máximo
+        // Agregar evento de cambio al campo de nombre para actualizar el campo de invitados y el número máximo
+        nombreInput.addEventListener('input', async () => {
+            const nombre = nombreInput.value.trim();
+            if (nombre !== '') {
+                try {
+                    // Obtener el número máximo de invitados desde la base de datos
+                    const numMaximoInvitados = await obtenerNumeroMaximoInvitados(nombre);
+                    // Actualizar el valor de data-max-invites para permitir disminuir pero no aumentar
+                    numInvitadosInput.setAttribute('data-max-invites', numMaximoInvitados);
+                    // Establecer el valor actual de invitados al máximo permitido
+                    numInvitadosInput.value = Math.min(parseInt(numInvitadosInput.value), numMaximoInvitados) || '';
+                } catch (error) {
+                    console.error('Error al obtener el número de invitados:', error);
+                }
+            } else {
+                numInvitadosInput.value = ''; 
+                numInvitadosInput.removeAttribute('data-max-invites'); // Eliminar el atributo si no hay nombre seleccionado
+            }
+        });
+
+    
+        // Función para validar el valor de numInvitados y asegurarse de que no exceda el valor máximo permitido
+        function validarNumeroInvitados() {
+            const numInvitados = parseInt(numInvitadosInput.value);
+            const maxInvites = parseInt(numInvitadosInput.getAttribute('data-max-invites'));
+            if (!isNaN(numInvitados) && !isNaN(maxInvites)) {
+                numInvitadosInput.value = Math.min(numInvitados, maxInvites);
+            }
+        }
+    
+        // Agregar evento de cambio al campo de invitados para validar el valor
+        numInvitadosInput.addEventListener('change', validarNumeroInvitados);
+        // Agregar evento de entrada al campo de invitados para validar el valor en tiempo real
+        numInvitadosInput.addEventListener('input', validarNumeroInvitados);
+    
+        document.getElementById('btn-submit').addEventListener('click', async () => {
+            event.preventDefault();
+            // Obtener valores del formulario
+            const nombre = document.getElementById('nombre').value.trim();
+            const numInvitados = document.getElementById('numInvitados').value.trim();
+            const asistencia = document.getElementById('asistencia').value.trim();
+    
+            // Validar los datos del formulario
+            if (nombre === '' || numInvitados === '' || asistencia === '') {
+                console.log('Por favor, complete todos los campos.');
+                return;
+            }
+    
+            try {
+                // Realizar la solicitud para actualizar los invitados
+                const response = await fetch(`/actualizarInvitados/${nombre}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ numInvitados, asistencia })
+                });
+                console.log(response)
+                const data = await response.json();
+                console.log(data.mensaje); // Mensaje de confirmación o error
+
+            } catch (error) {
+                console.error('Error al actualizar el número de invitados:', error);
+            }
+            rsvpForm.style.display = 'none';
+            responseRsvp.style.display = 'flex';
+        });
+
+        otherButton.addEventListener('click', () => {
+            rsvpForm.reset();
+            rsvpForm.style.display = 'flex';
+            responseRsvp.style.display = 'none';
+        });
+    </script>
+    
 </body>
 </html>

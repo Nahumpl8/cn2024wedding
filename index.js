@@ -9,7 +9,7 @@ const nodemailer = require('nodemailer');
 
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 4000;
 
 
 mongoose.connect(process.env.MONGODB_URI, { ssl: true });
@@ -30,6 +30,7 @@ const Invitado = mongoose.model('Invitado', {
   contraseña: String,
   numeroInvitados: Number,
   weekend: Number,
+  asistencia: String,
 });
 
 app.set('view engine', 'ejs');
@@ -49,12 +50,40 @@ app.use(express.urlencoded({ extended: true }));
 
 app.get('/', async (req, res) => {
   try {
-      res.render('principal', { });
+    const invitados = await Invitado.find({}, 'nombre');
+    const nombres = invitados.map((invitado) => invitado.nombre);
+    res.render('principal', { opcionesNombre: nombres });
   } catch (error) {
-      console.error('Error al obtener información de la boda:', error);
-      res.status(500).json({ error: 'Error interno del servidor' });
+    console.error('Error al obtener información de la boda:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
   }
 });
+
+
+app.put('/actualizarInvitados/:nombre', async (req, res) => {
+  try {
+    const { nombre } = req.params; // Obtener el nombre de los parámetros de la ruta
+    const { numInvitados, asistencia } = req.body; // Obtener los datos del cuerpo de la solicitud
+
+    // Realizar la actualización en la base de datos usando el nombre obtenido de la ruta
+    const usuario = await Invitado.findOneAndUpdate(
+      { nombre },
+      { numeroInvitados: numInvitados, asistencia }, // Actualizar el número de invitados y la asistencia
+      { new: true }
+    );
+
+    if (usuario) {
+      res.status(200).json({ mensaje: 'Número de invitados actualizado correctamente' });
+    } else {
+      res.status(404).json({ mensaje: 'Usuario no encontrado' });
+    }
+  } catch (error) {
+    console.error('Error al actualizar número de invitados:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
+
+
 
 app.post('/send-email', async (req, res) => {
   let { nombre, correo: email, asunto, mensaje } = req.body;
