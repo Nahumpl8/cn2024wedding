@@ -544,6 +544,7 @@ a{
     transition: border-bottom 0.3s, color 0.3s; 
     width: 270px;
     margin-top: 10px;
+    border-radius: 0%;
 }
 #nombre::placeholder,
 #numInvitados::placeholder, #asistencia::placeholder {
@@ -934,13 +935,19 @@ input::placeholder, textarea::placeholder{
     .nav_phone_menu a:nth-child(4) {
         animation-delay: 2.2s;
     }
+    .nav_phone_menu a:nth-child(5) {
+        animation-delay: 2.5s;
+    }
+    .nav_phone_menu a:nth-child(6) {
+        animation-delay: 2.8s;
+    }
     .navbar.show{
         background-color: #f8f8f8;
         border-radius: 0;
     }
     .nav_phone_menu.show {
         display: block;
-        animation: showMenu 1s ease forwards;
+        animation: showMenu 1.2s ease-in-out forwards;
     }
     .phone_scroll{
         width: 100%;
@@ -958,7 +965,7 @@ input::placeholder, textarea::placeholder{
             height: 0;
         }
         to{
-            height: 200px;
+            height: 325px;
         }
     }
     .menu_p{

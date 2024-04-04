@@ -525,7 +525,7 @@ input, textarea{
         z-index: 1000;
     }
     .nav_phone_menu li {
-        padding: 10px 0;
+        padding: 15px 0;
         text-align: center;
         list-style: none;
     }
@@ -583,7 +583,7 @@ input, textarea{
             height: 0;
         }
         to{
-            height: 200px;
+            height: 325px;
         }
     }
     .menu_p{
