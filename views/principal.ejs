@@ -120,7 +120,7 @@
                     <img src="/images/ScheduleIcon.png" alt="">
                 </div>  
             </div>   
-             <p>Para asegurarnos de que no te pierdas ni un solo momento de nuestra celebración, hemos preparado un programa detallado para el día de la boda. Desde la ceremonia hasta la recepción, cada momento especial está cuidadosamente planificado para que disfrutes al máximo de este día único.</p>
+             <p>Para asegurarnos de que no te pierdas ni un solo momento de nuestra celebración, hemos preparado un programa detallado para el día de la boda.</p>
              <div class="anchor">
                 <a href="/programa">Ver itinerario</a>
              </div>
@@ -132,7 +132,7 @@
                     <img src="/images/locationIcon.png" alt="">
                 </div>  
             </div> 
-             <p>Aquí encontrarás la ubicación exacta del lugar de la boda. Esta información te ayudará a llegar sin problemas y a disfrutar de cada momento del evento. ¡Esperamos que esta ubicación facilite tu experiencia en nuestra boda!</p>
+             <p>La dirección exacta donde se llevara a cabo el evento es <b> Av. Contreras 300, San Jerónimo Lídice, 10200 México, CDMX.</b> Dando click en el botón encontrarás la ubicación exacta del lugar de la boda.</p>
              <div class="anchor">
                 <a href="https://maps.app.goo.gl/sQ6mAQqUFA1TsHoc6">Ver ubicación</a>
              </div>
@@ -144,7 +144,7 @@
                     <img src="/images/dressIcon.png" alt="">
                 </div>  
             </div> 
-             <p>Aquí te ofrecemos recomendaciones de vestimenta para nuestra boda. Desde el código de vestimenta hasta sugerencias específicas, esta guía te ayudará a lucir apropiado y elegante para la ocasión. Esperamos que estas sugerencias hagan que tu elección sea más sencilla y te permitan disfrutar al máximo de nuestro día especial.</p>
+             <p>Aquí te ofrecemos recomendaciones de vestimenta para nuestra boda. Esperamos que estas sugerencias hagan que tu elección sea más sencilla y te permitan disfrutar al máximo de nuestro día especial.</p>
              <div class="anchor">
                 <a href="/dress-code">Ver recomendiaciones</a>
              </div>
@@ -156,19 +156,19 @@
                     <img src="/images/hotelcon.png" alt="">
                 </div>  
             </div> 
-             <p>Hemos seleccionado una lista de hoteles cercanos que ofrecen una experiencia de hospedaje. Desde lujosos hoteles hasta acogedores bed and breakfasts, hay opciones para todos los gustos y presupuestos. Te recomendamos reservar con anticipación para asegurar tu alojamiento durante este fin de semana especial.</p>
+             <p>Hemos seleccionado una lista de hoteles cercanos que ofrecen una experiencia de hospedaje. Te recomendamos reservar con anticipación para asegurar tu alojamiento durante este fin de semana especial.</p>
              <div class="anchor">
                 <a href="/hoteles">Ver hoteles</a>
              </div>
         </div>
         <div class="rsvp_guest info_wedding">
             <div class="text_info">
-                <h2>Reservación</h2>
+                <h2>Invitación</h2>
                 <div class="info_img">
                     <img src="/images/rsvpIcon.png" alt="">
                 </div> 
             </div> 
-            <p>Para confirmar tu asistencia y reservar tu lugar, te invitamos a completar el formulario de reserva en nuestra página web. Por favor, asegúrate de confirmar tu asistencia o te agradeceriamos que nos indiques si no pudieras asistir. ¡Esperamos con ansias compartir este día especial contigo!
+            <p>Por favor confirma tu asistencia antes en la siguiente sección y para ver tu invitacion dale click en el siguiente botón. ¡Estamos emocionados de compartir este día tan especial contigo!
             </p>
             <div class="anchor">
                 <a href="/login">Hacer reservación</a>
@@ -181,7 +181,7 @@
                     <img src="/images/giftIcon.png" alt="">
                 </div>  
             </div> 
-             <p>Para aquellos que deseen compartir su alegría con nosotros, su asistencia es el mejor regalo que podían darnos, además hemos creado una mesa de regalos donde podrán encontrar sugerencias. Desde artículos prácticos hasta experiencias inolvidables, cualquier gesto será apreciado y recordado con cariño.</p>
+             <p>Creamos una mesa de regalos donde podrán encontrar sugerencias desde artículos prácticos hasta experiencias inolvidables, cualquier gesto será apreciado y recordado con cariño, aunque el mejor regalo será tu presencia.</p>
              <div class="anchor">
                 <a href="/">Ver opciones</a>
              </div>
@@ -267,7 +267,7 @@
         </div>
         <div class="email-contact">
             <h2 class="footer-text-phone">Si tienes alguna duda, <br>no dudes en contactarnos.</h2>
-            <form action="/send-email" method="POST">
+            <form action="/send-email" method="POST" id="email-form">
                 <label for="nombre-email">Nombre</label>
                 <input type="text" id="nombre-email" name="nombre" placeholder="Tu nombre"><br>
             
@@ -312,7 +312,7 @@
                         $('#nombre-email').css('display', 'none');
                         $('#asunto').css('display', 'none');
                         $('#mensaje').css('display', 'none');
-                        $('form').append('<button id="btn-another-email">Enviar otro correo</button>');
+                        $('#email-form').append('<button id="btn-another-email">Enviar otro correo</button>');
                     },
                     error: function(err) {
                         // agrega un mensaje de error debajo del formulario
