@@ -624,7 +624,7 @@ input, textarea{
     }
      /*Slider info*/
      .introduction-program-content{
-        bottom: 15%;
+        bottom: 8%;
         left: 2%;
         text-align: start;
         color: #f8f8f8;
@@ -724,6 +724,9 @@ input, textarea{
         color: #f8f8f8;
         font-weight: 300;
         text-align: center;
+    }
+    .info_hotel{
+        padding: 15px 10px;
     }
 
     .email-contact input{
