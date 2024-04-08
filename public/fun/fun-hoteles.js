@@ -29,14 +29,12 @@ document.addEventListener('scroll', () => {
     if(window.scrollY > 200){
         phoneBar.classList.add('phone_scroll')
         menuDesktop.classList.add('desktop_scroll')
-        menuDesktopOp.forEach((op) => {op.style.color = '#607660'})
         logoWDesktop.src = '/images/goldLogo.png';
         logoW.src = '/images/goldLogo.png'
 
     } else{
         phoneBar.classList.remove('phone_scroll')
         menuDesktop.classList.remove('desktop_scroll')
-        menuDesktopOp.forEach((op) => {op.style.color = '#f8f8f8'});
         logoWDesktop.src = '/images/wedding.png';
     }
     
