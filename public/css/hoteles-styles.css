@@ -500,11 +500,7 @@ input, textarea{
 
 
 
-
-
-
-
-@media screen and (max-width: 780px) {
+@media screen and (max-width: 940px) {
     .desktop_menu{
         display: none;
     }
@@ -513,18 +509,20 @@ input, textarea{
         
     }
     .phone_menu{
+        width: 100%;
         display: flex;
         justify-content: space-between;
         align-items: center;
         border-radius: 0 0 20px 20px;
+        z-index: 10000;
     }
     .logo_phone img{
-        width: 20%;
+        width: 12%;
         scale: 1.2;
         animation: none;
     }
     .menu_p img{
-        width: 80%;
+        width: 50%;
     }
     .nav_phone_menu {
         display: none;
@@ -533,12 +531,15 @@ input, textarea{
         left: 0;
         width: 100%;
         background-color: #f8f8f8;
-        z-index: 1000;
+        z-index: 10000;
     }
     .nav_phone_menu li {
-        padding: 15px 0;
+        padding: 15px;
         text-align: center;
         list-style: none;
+    }
+    .slide{
+        animation: none;
     }
       
     .nav_phone_menu a {
@@ -569,14 +570,19 @@ input, textarea{
     .nav_phone_menu a:nth-child(4) {
         animation-delay: 2.2s;
     }
+    .nav_phone_menu a:nth-child(5) {
+        animation-delay: 2.5s;
+    }
+    .nav_phone_menu a:nth-child(6) {
+        animation-delay: 2.8s;
+    }
     .navbar.show{
         background-color: #f8f8f8;
         border-radius: 0;
-        
     }
     .nav_phone_menu.show {
         display: block;
-        animation: showMenu 1s ease forwards;
+        animation: showMenu 1.2s ease-in-out forwards;
     }
     .phone_scroll{
         width: 100%;
@@ -594,7 +600,7 @@ input, textarea{
             height: 0;
         }
         to{
-            height: 325px;
+            height: 375px;
         }
     }
     .menu_p{
@@ -602,7 +608,20 @@ input, textarea{
         align-items: center;
         justify-content: start;
     }
+}
 
+
+
+
+@media screen and (max-width: 780px) {
+    .logo_phone img{
+        width: 20%;
+        scale: 1.2;
+        animation: none;
+    }
+    .menu_p img{
+        width: 80%;
+    }
      /*Slider info*/
      .introduction-program-content{
         bottom: 15%;
