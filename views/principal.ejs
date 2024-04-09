@@ -204,7 +204,7 @@
         </div>
         <div class="info-enter-rsvp">
             <h2>Reserva tu lugar</h2>
-            <p>Queremos que seas parte de este momento tan importante para nosotros, confirma tu asistencia</p>
+            <p>Queremos que seas parte de este momento tan importante para nosotros, llena este formulario y confirma tu asistencia</p>
             <div class="form-home">
                 <form method="POST" id="rsvp-method">
                     <label for="nombre"></label>
@@ -432,22 +432,12 @@
 
         lessBtn.addEventListener('click', () => {
             numInvitadosInput.stepDown();
-            if(numInvitadosInput.value < 1) {
-                lessBtn.style.opacity = '0';
-            } else if(numInvitadosInput.value >= 1){
-                lessBtn.style.opacity = '1';
-            }
         });
 
         moreBtn.addEventListener('click', () => {
             if(numInvitadosInput.value < numInvitadosInput.getAttribute('data-max-invites')) {
                 numInvitadosInput.stepUp();
             } 
-            if(numInvitadosInput.getAttribute('data-max-invites') == numInvitadosInput.value){
-                moreBtn.style.opacity = '0';
-            } else if( numInvitadosInput.getAttribute('data-max-invites') > numInvitadosInput.value){
-                moreBtn.style.opacity = '1';
-            }
 
         });
     
