@@ -479,6 +479,7 @@ body{
         align-items: center;
         z-index:10;
         pointer-events: none;
+        animation: displayNone 4s ease-in-out forwards;
     }
     .side-one{
         width: 50%;
@@ -500,17 +501,25 @@ body{
         }
         100%{
             transform: translate(50vw);
-            display: none;
         }
     }
     @keyframes rightSideOpen {
         0%{
             transform: translate(0);
+            display: flex;
         }
         100%{
             transform: translate(-50vw);
+        }
+    }
+    @keyframes displayNone {
+        0%{
+            display: flex;
+        }
+        100%{
             display: none;
         }
+        
     }
     .place h2{
         font-size: 1.6rem;
