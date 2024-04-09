@@ -479,20 +479,19 @@ body{
         align-items: center;
         z-index:10;
         pointer-events: none;
-        animation: displayNone 4s ease-in-out forwards;
     }
     .side-one{
         width: 50%;
         height: 100%;
         background-color: #A97F55;
-        animation: rightSideOpen 3s ease-in-out forwards;
+        animation: leftSideOpen 3s ease-in-out forwards;
         animation-delay: .5s;
     }
     .side-two{
         width: 50%;
         height: 100%;
         background-color: #A97F55;
-        animation: leftSideOpen 3s ease-in-out forwards;
+        animation: rightSideOpen 3s ease-in-out forwards;
         animation-delay: .5s;
     }
     @keyframes leftSideOpen {
@@ -500,7 +499,8 @@ body{
             transform: translate(0);
         }
         100%{
-            transform: translate(50vw);
+            transform: translate(-50vw);
+            display: none;
         }
     }
     @keyframes rightSideOpen {
@@ -509,17 +509,12 @@ body{
             display: flex;
         }
         100%{
-            transform: translate(-50vw);
-        }
-    }
-    @keyframes displayNone {
-        0%{
-            display: flex;
-        }
-        100%{
+            transform: translate(50vw);
             display: none;
         }
-        
+    }
+    .none{
+        display: none;
     }
     .place h2{
         font-size: 1.6rem;
