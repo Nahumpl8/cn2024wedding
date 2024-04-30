@@ -72,12 +72,21 @@
             return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
         }
 
+        // Lista de opciones original
+        const opcionesConAcentos = [...opcionesNombreLimpio];
+
         // Crear el objeto Awesomplete con la lista de opciones normalizadas
         const awesomplete = new Awesomplete(nombreInput, {
-            list: opcionesNombreLimpio.map(opcion => quitarAcentos(opcion)),
+            list: opcionesConAcentos.map(opcion => quitarAcentos(opcion)),
             minChars: 3,
             replace: function (text) {
-                nombreInput.value = text.value;
+                // Obtener el nombre con acentos correspondiente al texto seleccionado
+                const nombreSeleccionadoSinAcentos = text.value;
+                const indice = opcionesConAcentos.findIndex(opcion => quitarAcentos(opcion) === nombreSeleccionadoSinAcentos);
+                const nombreSeleccionadoConAcentos = opcionesConAcentos[indice];
+
+                // Asignar el nombre con acentos al input y despachar el evento 'input'
+                nombreInput.value = nombreSeleccionadoConAcentos;
                 nombreInput.dispatchEvent(new Event('input'));
             }
         });
