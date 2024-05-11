@@ -200,6 +200,9 @@ button:hover{
 
 .awesomplete ul{
     list-style: none;
+    position: absolute;
+    top:0;
+    left: 0;
     padding: 10px;
     color: rgb(96, 118, 96);
     cursor: pointer;
