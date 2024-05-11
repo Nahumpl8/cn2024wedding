@@ -363,21 +363,33 @@
         const moreBtn = document.querySelector('.more');
         const numbtns = document.querySelectorAll('.modificable span');
 
-    
+
         // Obtener opciones de nombre y filtrar las que no son nulas
         const opcionesNombre = JSON.parse('<%- JSON.stringify(opcionesNombre) %>');
         const opcionesNombreLimpio = opcionesNombre.filter(nombre => nombre !== null);
-    
-        // Inicializar Awesomplete en el campo de nombre
+
+        function quitarAcentos(texto) {
+            return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        }
+
+        // Lista de opciones original
+        const opcionesConAcentos = [...opcionesNombreLimpio];
+
+        // Crear el objeto Awesomplete con la lista de opciones normalizadas
         const awesomplete = new Awesomplete(nombreInput, {
-            list: opcionesNombreLimpio,
-            minChars: 3,
-            replace: function(text) {
-                nombreInput.value = text.value;
+            list: opcionesConAcentos.map(opcion => quitarAcentos(opcion)),
+            minChars: 10,
+            replace: function (text) {
+                // Obtener el nombre con acentos correspondiente al texto seleccionado
+                const nombreSeleccionadoSinAcentos = text.value;
+                const indice = opcionesConAcentos.findIndex(opcion => quitarAcentos(opcion) === nombreSeleccionadoSinAcentos);
+                const nombreSeleccionadoConAcentos = opcionesConAcentos[indice];
+
+                // Asignar el nombre con acentos al input y despachar el evento 'input'
+                nombreInput.value = nombreSeleccionadoConAcentos;
                 nombreInput.dispatchEvent(new Event('input'));
             }
         });
-    
         // Función para obtener el número máximo de invitados desde la base de datos
         async function obtenerNumeroMaximoInvitados(nombre) {
             try {
@@ -392,7 +404,8 @@
             }
             return 0; // Valor predeterminado si hay un error o no se encuentra el número máximo
         }
-    
+
+        // Agregar evento de cambio al campo de nombre para actualizar el campo de invitados y el número máximo
         // Agregar evento de cambio al campo de nombre para actualizar el campo de invitados y el número máximo
         nombreInput.addEventListener('input', async () => {
             const nombre = nombreInput.value.trim();
@@ -404,61 +417,54 @@
                     numInvitadosInput.setAttribute('data-max-invites', numMaximoInvitados);
                     // Establecer el valor actual de invitados al máximo permitido
                     numInvitadosInput.value = Math.min(parseInt(numInvitadosInput.value), numMaximoInvitados) || '';
-
                 } catch (error) {
                     console.error('Error al obtener el número de invitados:', error);
                 }
             } else {
-                numInvitadosInput.value = ''; 
+                numInvitadosInput.value = '';
                 numInvitadosInput.removeAttribute('data-max-invites'); // Eliminar el atributo si no hay nombre seleccionado
             }
         });
-
-        
-        // Función para validar el valor de numInvitados y asegurarse de que no exceda el valor máximo permitido
-        function validarNumeroInvitados() {
-            const numInvitados = parseInt(numInvitadosInput.value);
-            const maxInvites = parseInt(numInvitadosInput.getAttribute('data-max-invites'));
-            
-            if (!isNaN(numInvitados) && !isNaN(maxInvites)) {
-                
-                numInvitadosInput.value = Math.min(numInvitados, maxInvites);
-                
-            }
-            
-            
-        }
-
 
         lessBtn.addEventListener('click', () => {
             numInvitadosInput.stepDown();
         });
 
         moreBtn.addEventListener('click', () => {
-            if(numInvitadosInput.value < numInvitadosInput.getAttribute('data-max-invites')) {
+            if (numInvitadosInput.value < numInvitadosInput.getAttribute('data-max-invites')) {
                 numInvitadosInput.stepUp();
-            } 
+            }
 
         });
-    
+
+
+        // Función para validar el valor de numInvitados y asegurarse de que no exceda el valor máximo permitido
+        function validarNumeroInvitados() {
+            const numInvitados = parseInt(numInvitadosInput.value);
+            const maxInvites = parseInt(numInvitadosInput.getAttribute('data-max-invites'));
+            if (!isNaN(numInvitados) && !isNaN(maxInvites)) {
+                numInvitadosInput.value = Math.min(numInvitados, maxInvites);
+            }
+        }
+
         // Agregar evento de cambio al campo de invitados para validar el valor
         numInvitadosInput.addEventListener('change', validarNumeroInvitados);
         // Agregar evento de entrada al campo de invitados para validar el valor en tiempo real
         numInvitadosInput.addEventListener('input', validarNumeroInvitados);
-    
+
         document.getElementById('btn-submit').addEventListener('click', async () => {
             event.preventDefault();
             // Obtener valores del formulario
             const nombre = document.getElementById('nombre').value.trim();
             const numInvitados = document.getElementById('numInvitados').value.trim();
             const asistencia = document.getElementById('asistencia').value.trim();
-    
+
             // Validar los datos del formulario
             if (nombre === '' || numInvitados === '' || asistencia === '' || numInvitados === 0 || numInvitados === '0') {
                 console.log('Por favor, complete todos los campos.');
                 return;
             }
-    
+
             try {
                 // Realizar la solicitud para actualizar los invitados
                 const response = await fetch(`/actualizarInvitados/${nombre}`, {
