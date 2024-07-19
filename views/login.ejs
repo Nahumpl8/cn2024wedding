@@ -68,10 +68,13 @@
         const opcionesNombre = JSON.parse('<%- JSON.stringify(opcionesNombre) %>');
         const opcionesNombreLimpio = opcionesNombre.filter(nombre => nombre !== null);
 
+        // Función para quitar acentos y caracteres especiales como la ñ
 
-        function quitarAcentos(texto) {
-            return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        const quitarAcentos = (texto) => {
+            return texto.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
         }
+
+
 
         // Lista de opciones original
         const opcionesConAcentos = [...opcionesNombreLimpio];
@@ -88,6 +91,7 @@
         const nombreEspecial4 = 'Hugo Roy'
         const nombreEspecial5 = 'Gina Eddy'
         const nombreEspecial6 = 'Lili Bolio'
+        const nombreEspecial7 = 'Melva'
         if ((nombre != '' && nombre.length > 10) ){
             const opcionesFiltradas = opcionesConAcentos.filter(opcion => quitarAcentos(opcion).toLowerCase().includes(nombre.toLowerCase()));
             
@@ -112,7 +116,7 @@
                 }
             });
 
-        } else if ((nombre.includes(nombreEspecial.toLowerCase()) || nombre.includes(nombreEspecial2.toLowerCase()) || nombre.includes(nombreEspecial3.toLowerCase()) || nombre.includes(nombreEspecial4.toLowerCase()) || nombre.includes(nombreEspecial5.toLowerCase()) ||nombre.includes(nombreEspecial6.toLowerCase()) ) && nombre.length > 5){
+        } else if ((nombre.includes(nombreEspecial.toLowerCase()) || nombre.includes(nombreEspecial2.toLowerCase()) || nombre.includes(nombreEspecial3.toLowerCase()) || nombre.includes(nombreEspecial4.toLowerCase()) || nombre.includes(nombreEspecial5.toLowerCase()) ||nombre.includes(nombreEspecial6.toLowerCase()) || nombre.includes(nombreEspecial7.toLocaleLowerCase()) ) && nombre.length > 3){
             const opcionesFiltradas = opcionesConAcentos.filter(opcion => quitarAcentos(opcion).toLowerCase().includes(nombre.toLowerCase()));
             
 
